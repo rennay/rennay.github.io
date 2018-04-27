@@ -1,7 +1,7 @@
 
 # How to send a SigFox message using Sqwidnet Unashield and Arduino UNO
 
-## Hardware Setup
+## 1. Hardware Setup
 
 * Arduino Uno
 
@@ -25,7 +25,7 @@ You will need a USB Type A - Type B cable.  Type A goes into your computer USB p
 
 ![Alt text](/sigfox/images/arduino_unashield_usb.png "Arduino + Unashield + USB")
 
-## SigFox/Sqwidnet Setup
+## 2. SigFox/Sqwidnet Setup
 
 *  Device Registration
 
@@ -37,9 +37,9 @@ You will need a USB Type A - Type B cable.  Type A goes into your computer USB p
 
 ![Alt text](/sigfox/images/backend_sigfox_device_list.png "Sigfox Backend Device List")
 
-## Arduino Setup
+## 3. Arduino Setup
 
-### Environment Preparation
+### 3.1. Environment Preparation
 
 * Install IDE - [Arduino IDE](https://www.arduino.cc/en/Main/Software)
 
@@ -91,7 +91,7 @@ void loop() {
 
 * Check device - you should see a flashing LED
 
-### Turn on LED
+### 3.2. Turn on LED
 
 * Make the following code change:
 
@@ -108,7 +108,7 @@ void loop() {
 
 * Check device - LED should be on
 
-### Turn off LED
+### 3.3. Turn off LED
 
 * Make the following code change:
 
@@ -125,7 +125,7 @@ void loop() {
 
 * Check device - LED should be off
 
-## Send message to SigFox/Sqwidnet
+## 4. Send message to SigFox/Sqwidnet
 
 * Compile/Verify the following code in the Arduino IDE:
 
@@ -194,7 +194,7 @@ void loop(){}
     }
     ```
 
-## Putting it all together
+## 5. Putting it all together
 
 1. Send from Arudino IDE
 
