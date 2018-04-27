@@ -43,7 +43,7 @@ rm /home/mongodb/mongodb/data/mongod.lock
 - Single Instance
 
 ~~~~
-nohup ~/mongodb/bin/mongod --bind_ip 10.74.11.32 --port 27017 -dbpath ~/mongodb/data
+nohup ~/mongodb/bin/mongod --bind_ip 10.74.11.32 --port 27017 -dbpath ~/mongodb/data &
 ~~~~
 
 - Mongo Replica Set
@@ -63,10 +63,10 @@ rs.status()
 - On Each Node:
 
 ~~~~
-nohup ./mongod --bind_ip 10.58.179.17 --replSet rs0 &
+nohup ./mongod --bind_ip 10.58.179.17 --replSet rsQA &
 rs.add("10.58.187.26:27017")
 
-nohup ./mongod --bind_ip 10.58.179.18 --replSet rs0 &
+nohup ./mongod --bind_ip 10.58.179.18 --replSet rsQA &
 rs.add("10.58.179.18:27017")
 
 nohup ~/mongodb/bin/mongod --bind_ip 10.58.187.26 -dbpath ~/mongodb/data --replSet rsQA &
