@@ -34,3 +34,39 @@
 
 ![Alt text](/sigfox/images/backend_sigfox_device_list "Sigfox Backend Device List")
 
+## Arduino Setup
+
+*  Install IDE
+
+** [Arduino IDE](https://www.arduino.cc/en/Main/Software)
+
+* Blink an LED
+
+** [Blink Tutorial](https://www.arduino.cc/en/tutorial/blink)
+
+* Turn on LED
+
+<code>
+void loop() {
+  digitalWrite(LED_BUILTIN, HIGH);   // turn the LED on (HIGH is the voltage level)
+  delay(1000);                       // wait for a second
+//  digitalWrite(LED_BUILTIN, LOW);    // turn the LED off by making the voltage LOW
+//  delay(1000);                       // wait for a second
+}
+</code>
+
+* Turn off LED
+
+<code>
+void loop() {
+//  digitalWrite(LED_BUILTIN, HIGH);   // turn the LED on (HIGH is the voltage level)
+//  delay(1000);                       // wait for a second
+  digitalWrite(LED_BUILTIN, LOW);    // turn the LED off by making the voltage LOW
+  delay(1000);                       // wait for a second
+}
+</code>
+
+
+
+
+
