@@ -195,13 +195,13 @@ void loop(){}
 
 ## 6. Putting it all together
 
-1. Send from Arudino IDE
+### 1.  Send from Arudino IDE
 
 * Change data in Arudino IDE and upload/run Sketch
 
 ![Alt text](/sigfox/images/arduino_sketch.png "Arduino Sketch")
 
-2. Verify Message received in Sigfox Backend
+### 2. Verify Message received in Sigfox Backend
 
 * Verify message has been received in backend.sigfox.com
 
@@ -209,7 +209,7 @@ void loop(){}
 
 * Verify Callback Executed OK
 
-3. Verify Message received in Google Cloud
+### 3. Verify Message received in Google Cloud
 
 * Verify message received
 
