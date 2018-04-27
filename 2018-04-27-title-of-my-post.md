@@ -147,8 +147,69 @@ void loop(){}
 
 * Lights should flash on Unashield board
 
-* Verify the message has been received in [Sigfox Backend Messages](https://backend.sigfox.com/device/{deviceID}/messages)
+* Verify the message has been received in [Sigfox Backend Messages](https://backend.sigfox.com/device/{deviceID}/messages).  
 
 ![Alt text](/sigfox/images/backend_sigfox_device_list.png "Sigfox Backend Messages")
 
+** Note that the timestamp in the portal appears to be GMT.
 
+** Verify the data in your Arduino IDE is the same as the one in the Sigfox Backend
+
+## Configure a Callback
+
+* Expose an HTTP GET service or an HTTP POST service (using Google Cloud Functions)
+
+* Navigate to [CallBacks in Sigfox Backend Portl](https://backend.sigfox.com/devicetype/5965425b9e93a178a1b19843/callbacks)
+
+* For HTTP GET
+
+** Update URL pattern as follows
+<code>
+https://YOUR_SERVER_ADDRESS/addMessage?device={device}&time={time}&data={data}&lat={lat}&lng={lng}&station={station}
+</code>
+
+* For HTTP POST
+
+** Update URL pattern as follows
+<code>
+https://YOUR_SERVER_ADDRESS/addMessage
+</code>
+
+** Update Content type
+<code>
+application/json
+</code>
+
+** Update Body
+<code>
+ {
+    "device" : "{device}",
+    "data" : "{data}",
+    "station" : "{station}",
+    "lat" : "{lat}",       
+    "lng" : "{lng}",       
+    "time" : {time}
+ }
+</code>
+
+## Putting it all together
+
+* Arudino IDE
+
+** Change data in Arudino IDE and upload/run Sketch
+
+![Alt text](/sigfox/images/arduino_sketch.png "Arduino Sketch")
+
+* Sigfox Backend
+
+** Verify message has been received in backend.sigfox.com
+
+![Alt text](/sigfox/images/backend_sigfox_message_list.png "Arduino Sketch")
+
+** Verify Callback Executed OK
+
+* Google Cloud
+
+** Verify message received
+
+![Alt text](/sigfox/images/google_cloud_fn_log.png "Google Cloud Functions Log")
