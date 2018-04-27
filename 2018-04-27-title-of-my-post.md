@@ -8,7 +8,7 @@
 
 ![Alt text](/sigfox/images/arduino.png "Arduino Uno")
 
-*  Swidnet Unashield
+*  Sqwidnet Unashield
 
 ![Alt text](/sigfox/images/unashield_top.png "Unashield Top")
 
@@ -22,7 +22,7 @@
 
 ![Alt text](/sigfox/images/arduino_unashield_usb.png "Arduino + Unashield + USB")
 
-## Sigfox/Swidnet Setup
+## Sigfox/Sqwidnet Setup
 
 *  Device Registration
 
@@ -122,7 +122,7 @@ void loop() {
 
 ** Check device - LED should be off
 
-## Send message to Sigfox/Swidnet
+## Send message to Sigfox/Sqwidnet
 
 ** Compile/Verify the following code fro
 
