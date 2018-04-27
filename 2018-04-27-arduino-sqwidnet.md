@@ -158,7 +158,7 @@ void loop(){}
 
   * Verify the data in your Arduino IDE is the same as the one in the Sigfox Backend
 
-## Configure a Callback
+## 5. Configure a Callback
 
 * Expose an HTTP GET service or an HTTP POST service (using Google Cloud Functions)
 
@@ -194,7 +194,7 @@ void loop(){}
     }
     ```
 
-## 5. Putting it all together
+## 6. Putting it all together
 
 1. Send from Arudino IDE
 
