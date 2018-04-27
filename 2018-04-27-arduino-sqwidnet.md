@@ -1,4 +1,3 @@
-
 # How to send a SigFox message using Sqwidnet Unashield and Arduino UNO
 
 ## 1. Hardware Setup
