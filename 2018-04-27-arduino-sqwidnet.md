@@ -23,14 +23,13 @@
 ## Sigfox/Sqwidnet Setup
 
 *  Device Registration
-
-** [Sigfox Device Registration](https://unabiz.github.io/unashield)
+  * [Sigfox Device Registration](https://unabiz.github.io/unashield)
 
 ** Log into [Sigfox Backend](https://backend.sigfox.com)
 
 ** [Check Device](https://backend.sigfox.com/device/list)
 
-![Alt text](/sigfox/images/backend_sigfox_device_list "Sigfox Backend Device List")
+![Alt text](/sigfox/images/backend_sigfox_device_list.png "Sigfox Backend Device List")
 
 ## Arduino Setup
 
@@ -42,7 +41,7 @@
 
 ** Compile/Verify the following code from [Blink Tutorial](https://www.arduino.cc/en/tutorial/blink)
 
-<code>
+~~~~
 /*
   Blink
 
@@ -80,7 +79,7 @@ void loop() {
   digitalWrite(LED_BUILTIN, LOW);    // turn the LED off by making the voltage LOW
   delay(1000);                       // wait for a second
 }
-</code>
+~~~~
 
 ** Upload
 
@@ -90,14 +89,14 @@ void loop() {
 
 ** Make the following code change:
 
-<code>
+~~~~
 void loop() {
   digitalWrite(LED_BUILTIN, HIGH);   // turn the LED on (HIGH is the voltage level)
   delay(1000);                       // wait for a second
 //  digitalWrite(LED_BUILTIN, LOW);    // turn the LED off by making the voltage LOW
 //  delay(1000);                       // wait for a second
 }
-</code>
+~~~~
 
 ** Upload
 
@@ -105,28 +104,26 @@ void loop() {
 
 * Turn off LED
 
-** Make the following code change:
+  * Make the following code change:
 
-<code>
+~~~~
 void loop() {
 //  digitalWrite(LED_BUILTIN, HIGH);   // turn the LED on (HIGH is the voltage level)
 //  delay(1000);                       // wait for a second
   digitalWrite(LED_BUILTIN, LOW);    // turn the LED off by making the voltage LOW
   delay(1000);                       // wait for a second
 }
-</code>
-
-** Upload
-
-** Check device - LED should be off
-
-## Send message to Sigfox/Sqwidnet
-
-** Compile/Verify the following code fro
+~~~~
 
 * Upload
 
-<code>
+* Check device - LED should be off
+
+## Send message to Sigfox/Sqwidnet
+
+* Compile/Verify the following code
+
+~~~~
 #include <SoftwareSerial.h>
 
 #define TX 4
@@ -141,7 +138,9 @@ sigfox.write("AT$SF=950e1400b051170094592100\r"); // Serial write to Sigfox Modu
 }
 
 void loop(){}
-</code>
+~~~~
+
+* Upload
 
 * Lights should flash on Unashield board
 
@@ -149,9 +148,9 @@ void loop(){}
 
 ![Alt text](/sigfox/images/backend_sigfox_device_list.png "Sigfox Backend Messages")
 
-** Note that the timestamp in the portal appears to be GMT.
+  * Note that the timestamp in the portal appears to be GMT.
 
-** Verify the data in your Arduino IDE is the same as the one in the Sigfox Backend
+  * Verify the data in your Arduino IDE is the same as the one in the Sigfox Backend
 
 ## Configure a Callback
 
@@ -161,34 +160,33 @@ void loop(){}
 
 * For HTTP GET
 
-** Update URL pattern as follows
-<code>
-https://YOUR_SERVER_ADDRESS/addMessage?device={device}&time={time}&data={data}&lat={lat}&lng={lng}&station={station}
-</code>
+  * Update URL pattern as follows
+
+    ```https://YOUR_SERVER_ADDRESS/addMessage?device={device}&time={time}&data={data}&lat={lat}&lng={lng}&station={station}```
 
 * For HTTP POST
 
-** Update URL pattern as follows
-<code>
-https://YOUR_SERVER_ADDRESS/addMessage
-</code>
+  * Update URL pattern as follows
 
-** Update Content type
-<code>
-application/json
-</code>
+      ```https://YOUR_SERVER_ADDRESS/addMessage```
 
-** Update Body
-<code>
- {
-    "device" : "{device}",
-    "data" : "{data}",
-    "station" : "{station}",
-    "lat" : "{lat}",       
-    "lng" : "{lng}",       
-    "time" : {time}
- }
-</code>
+
+  * Update Content type
+
+      ```application/json```
+
+  * Update Body
+
+    ```json
+    {
+        "device" : "{device}",
+        "data" : "{data}",
+        "station" : "{station}",
+        "lat" : "{lat}",       
+        "lng" : "{lng}",       
+        "time" : {time}
+    }
+    ```
 
 ## Putting it all together
 
