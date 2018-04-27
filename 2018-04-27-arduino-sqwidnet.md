@@ -206,7 +206,7 @@ void loop(){}
 
 * Verify message has been received in backend.sigfox.com
 
-![Alt text](/sigfox/images/backend_sigfox_message_list.png "Arduino Sketch")
+![Alt text](/sigfox/images/backend_sigfox_message_list.png "SigFox Message List")
 
 * Verify Callback Executed OK
 
