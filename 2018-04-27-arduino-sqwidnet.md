@@ -1,8 +1,9 @@
-**bold**
+
+# How to send a SigFox message using Sqwidnet Unashield and Arduino UNO
 
 ## Hardware Setup
 
-* Arduino
+* Arduino Uno
 
 ![Alt text](/sigfox/images/arduino.png "Arduino Uno")
 
@@ -14,32 +15,37 @@
 
 *  Arduino + Unashield
 
+Line up the pins of the Unashield and Arduino UNO and plug them together.  Note that its a perfect alignment.  Take your time - try not to bend any pins.
+
 ![Alt text](/sigfox/images/arduino_unashield.png "Arduino + Unashield")
 
 *  Arduino + Unashield + USB
 
+You will need a USB Type A - Type B cable.  Type A goes into your computer USB port.  Type B into the UNO.
+
 ![Alt text](/sigfox/images/arduino_unashield_usb.png "Arduino + Unashield + USB")
 
-## Sigfox/Sqwidnet Setup
+## SigFox/Sqwidnet Setup
 
 *  Device Registration
-  * [Sigfox Device Registration](https://unabiz.github.io/unashield)
 
-** Log into [Sigfox Backend](https://backend.sigfox.com)
+    Follow the instructions at [Sigfox Device Registratio] (https://unabiz.github.io/unashield) to register your device.
 
-** [Check Device](https://backend.sigfox.com/device/list)
+* Log into [Sigfox Backend](https://backend.sigfox.com)
+
+* Verify that the device has been successfully registered - [Check Device](https://backend.sigfox.com/device/list).  It should appears in the Device list.
 
 ![Alt text](/sigfox/images/backend_sigfox_device_list.png "Sigfox Backend Device List")
 
 ## Arduino Setup
 
-*  Install IDE
+### Environment Preparation
 
-** [Arduino IDE](https://www.arduino.cc/en/Main/Software)
+* Install IDE - [Arduino IDE](https://www.arduino.cc/en/Main/Software)
 
-* Blink an LED
+* Take your time and get comfortable with how the IDE works.  Spend a few minutes of the "Blink an LED" tutorial.
 
-** Compile/Verify the following code from [Blink Tutorial](https://www.arduino.cc/en/tutorial/blink)
+* Compile/Verify the following code from [Blink Tutorial](https://www.arduino.cc/en/tutorial/blink)
 
 ~~~~
 /*
@@ -81,13 +87,13 @@ void loop() {
 }
 ~~~~
 
-** Upload
+* Upload
 
-** Check device - you should see a flashing LED
+* Check device - you should see a flashing LED
 
-* Turn on LED
+### Turn on LED
 
-** Make the following code change:
+* Make the following code change:
 
 ~~~~
 void loop() {
@@ -98,13 +104,13 @@ void loop() {
 }
 ~~~~
 
-** Upload
+* Upload
 
-** Check device - LED should be on
+* Check device - LED should be on
 
-* Turn off LED
+### Turn off LED
 
-  * Make the following code change:
+* Make the following code change:
 
 ~~~~
 void loop() {
@@ -119,9 +125,9 @@ void loop() {
 
 * Check device - LED should be off
 
-## Send message to Sigfox/Sqwidnet
+## Send message to SigFox/Sqwidnet
 
-* Compile/Verify the following code
+* Compile/Verify the following code in the Arduino IDE:
 
 ~~~~
 #include <SoftwareSerial.h>
@@ -142,7 +148,7 @@ void loop(){}
 
 * Upload
 
-* Lights should flash on Unashield board
+* Lights should flash on Unashield board indicating that the message is being transmitted.
 
 * Verify the message has been received in [Sigfox Backend Messages](https://backend.sigfox.com/device/{deviceID}/messages).  
 
@@ -156,7 +162,7 @@ void loop(){}
 
 * Expose an HTTP GET service or an HTTP POST service (using Google Cloud Functions)
 
-* Navigate to [CallBacks in Sigfox Backend Portl](https://backend.sigfox.com/devicetype/5965425b9e93a178a1b19843/callbacks)
+* Navigate to [CallBacks in Sigfox Backend Portal](https://backend.sigfox.com/devicetype/5965425b9e93a178a1b19843/callbacks)
 
 * For HTTP GET
 
@@ -190,22 +196,22 @@ void loop(){}
 
 ## Putting it all together
 
-* Arudino IDE
+1. Send from Arudino IDE
 
-** Change data in Arudino IDE and upload/run Sketch
+* Change data in Arudino IDE and upload/run Sketch
 
 ![Alt text](/sigfox/images/arduino_sketch.png "Arduino Sketch")
 
-* Sigfox Backend
+2. Verify Message received in Sigfox Backend
 
-** Verify message has been received in backend.sigfox.com
+* Verify message has been received in backend.sigfox.com
 
 ![Alt text](/sigfox/images/backend_sigfox_message_list.png "Arduino Sketch")
 
-** Verify Callback Executed OK
+* Verify Callback Executed OK
 
-* Google Cloud
+3. Verify Message received in Google Cloud
 
-** Verify message received
+* Verify message received
 
 ![Alt text](/sigfox/images/google_cloud_fn_log.png "Google Cloud Functions Log")
