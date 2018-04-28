@@ -8,27 +8,27 @@
 
 *  Sqwidnet UnaShield
 
-![Alt text](images/UnaShield_top.png "UnaShield Top")
+![Alt text](images/unashield.png "UnaShield Top")
 
-![Alt text](images/UnaShield_bottom.png "UnaShield Bottom")
+![Alt text](images/unashield_bottom.png "UnaShield Bottom")
 
 *  Arduino + UnaShield
 
 Line up the pins of the UnaShield and Arduino UNO and plug them together.  Note that its a perfect alignment.  Take your time - try not to bend any pins.
 
-![Alt text](images/arduino_UnaShield.png "Arduino + UnaShield")
+![Alt text](images/arduino_unashield.png "Arduino + UnaShield")
 
 *  Arduino + UnaShield + USB
 
 You will need a USB Type A - Type B cable.  Type A goes into your computer USB port.  Type B into the UNO.
 
-![Alt text](images/arduino_UnaShield_usb.png "Arduino + UnaShield + USB")
+![Alt text](images/arduino_unashield_usb.png "Arduino + UnaShield + USB")
 
 ## 2. SigFox/Sqwidnet Setup
 
 *  Device Registration
 
-    Follow the instructions at [Sigfox Device Registratio] (https://unabiz.github.io/UnaShield) to register your device.
+    Follow the instructions at [Sigfox Device Registratio] (https://unabiz.github.io/unashield) to register your device.
 
 * Log into [Sigfox Backend](https://backend.sigfox.com)
 
