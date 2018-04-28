@@ -1,4 +1,4 @@
-# How to send a SigFox message using Sqwidnet Unashield and Arduino UNO
+# HOWTO: Send a SigFox message using Sqwidnet UnaShield and Arduino UNO
 
 ## 1. Hardware Setup
 
@@ -6,29 +6,29 @@
 
 ![Alt text](images/arduino.png "Arduino Uno")
 
-*  Sqwidnet Unashield
+*  Sqwidnet UnaShield
 
-![Alt text](images/unashield_top.png "Unashield Top")
+![Alt text](images/UnaShield_top.png "UnaShield Top")
 
-![Alt text](images/unashield_bottom.png "Unashield Bottom")
+![Alt text](images/UnaShield_bottom.png "UnaShield Bottom")
 
-*  Arduino + Unashield
+*  Arduino + UnaShield
 
-Line up the pins of the Unashield and Arduino UNO and plug them together.  Note that its a perfect alignment.  Take your time - try not to bend any pins.
+Line up the pins of the UnaShield and Arduino UNO and plug them together.  Note that its a perfect alignment.  Take your time - try not to bend any pins.
 
-![Alt text](images/arduino_unashield.png "Arduino + Unashield")
+![Alt text](images/arduino_UnaShield.png "Arduino + UnaShield")
 
-*  Arduino + Unashield + USB
+*  Arduino + UnaShield + USB
 
 You will need a USB Type A - Type B cable.  Type A goes into your computer USB port.  Type B into the UNO.
 
-![Alt text](images/arduino_unashield_usb.png "Arduino + Unashield + USB")
+![Alt text](images/arduino_UnaShield_usb.png "Arduino + UnaShield + USB")
 
 ## 2. SigFox/Sqwidnet Setup
 
 *  Device Registration
 
-    Follow the instructions at [Sigfox Device Registratio] (https://unabiz.github.io/unashield) to register your device.
+    Follow the instructions at [Sigfox Device Registratio] (https://unabiz.github.io/UnaShield) to register your device.
 
 * Log into [Sigfox Backend](https://backend.sigfox.com)
 
@@ -147,7 +147,7 @@ void loop(){}
 
 * Upload
 
-* Lights should flash on Unashield board indicating that the message is being transmitted.
+* Lights should flash on UnaShield board indicating that the message is being transmitted.
 
 * Verify the message has been received in [Sigfox Backend Messages](https://backend.sigfox.com/device/{deviceID}/messages).  
 

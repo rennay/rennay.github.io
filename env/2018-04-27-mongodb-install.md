@@ -1,4 +1,4 @@
-## Steps to install Mongo DB
+# HOWTO: Steps to install Mongo DB
 
 - Create a mongodb user
 
