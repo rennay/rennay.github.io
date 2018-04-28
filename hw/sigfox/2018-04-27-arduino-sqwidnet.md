@@ -4,25 +4,25 @@
 
 * Arduino Uno
 
-![Alt text](/sigfox/images/arduino.png "Arduino Uno")
+![Alt text](images/arduino.png "Arduino Uno")
 
 *  Sqwidnet Unashield
 
-![Alt text](/sigfox/images/unashield_top.png "Unashield Top")
+![Alt text](images/unashield_top.png "Unashield Top")
 
-![Alt text](/sigfox/images/unashield_bottom.png "Unashield Bottom")
+![Alt text](images/unashield_bottom.png "Unashield Bottom")
 
 *  Arduino + Unashield
 
 Line up the pins of the Unashield and Arduino UNO and plug them together.  Note that its a perfect alignment.  Take your time - try not to bend any pins.
 
-![Alt text](/sigfox/images/arduino_unashield.png "Arduino + Unashield")
+![Alt text](images/arduino_unashield.png "Arduino + Unashield")
 
 *  Arduino + Unashield + USB
 
 You will need a USB Type A - Type B cable.  Type A goes into your computer USB port.  Type B into the UNO.
 
-![Alt text](/sigfox/images/arduino_unashield_usb.png "Arduino + Unashield + USB")
+![Alt text](images/arduino_unashield_usb.png "Arduino + Unashield + USB")
 
 ## 2. SigFox/Sqwidnet Setup
 
@@ -32,9 +32,9 @@ You will need a USB Type A - Type B cable.  Type A goes into your computer USB p
 
 * Log into [Sigfox Backend](https://backend.sigfox.com)
 
-* Verify that the device has been successfully registered - [Check Device](https://backend.sigfox.com/device/list).  It should appears in the Device list.
+* Verify that the device has been successfully registered - [Check Device](https://backend.sigfox.com/device/list).  It should appear in the Device list.
 
-![Alt text](/sigfox/images/backend_sigfox_device_list.png "Sigfox Backend Device List")
+![Alt text](images/backend_sigfox_device_list.png "Sigfox Backend Device List")
 
 ## 3. Arduino Setup
 
@@ -151,7 +151,7 @@ void loop(){}
 
 * Verify the message has been received in [Sigfox Backend Messages](https://backend.sigfox.com/device/{deviceID}/messages).  
 
-![Alt text](/sigfox/images/backend_sigfox_device_list.png "Sigfox Backend Messages")
+![Alt text](images/backend_sigfox_device_list.png "Sigfox Backend Messages")
 
   * Note that the timestamp in the portal appears to be GMT.
 
@@ -199,13 +199,13 @@ void loop(){}
 
 * Change data in Arudino IDE and upload/run Sketch
 
-![Alt text](/sigfox/images/arduino_sketch.png "Arduino Sketch")
+![Alt text](images/arduino_sketch.png "Arduino Sketch")
 
 ### 2. Verify Message received in Sigfox Backend
 
 * Verify message has been received in backend.sigfox.com
 
-![Alt text](/sigfox/images/backend_sigfox_message_list.png "SigFox Message List")
+![Alt text](images/backend_sigfox_message_list.png "SigFox Message List")
 
 * Verify Callback Executed OK
 
@@ -213,4 +213,4 @@ void loop(){}
 
 * Verify message received
 
-![Alt text](/sigfox/images/google_cloud_fn_log.png "Google Cloud Functions Log")
+![Alt text](images/google_cloud_fn_log.png "Google Cloud Functions Log")
