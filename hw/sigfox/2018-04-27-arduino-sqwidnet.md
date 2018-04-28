@@ -8,7 +8,7 @@
 
 *  Sqwidnet UnaShield
 
-![Alt text](images/unashield.png "UnaShield Top")
+![Alt text](images/unashield_top.png "UnaShield Top")
 
 ![Alt text](images/unashield_bottom.png "UnaShield Bottom")
 
