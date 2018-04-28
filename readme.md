@@ -5,8 +5,8 @@ Hi there, I'm Rennay Dorasamy!
 
 The intention of this site is (in order of priority):
 1. document what I have done over the last few months
-2. "bootstrap" me in the event that I have to stop a project and return to it after a period of time
-3. help other users get up and running quicker
+2. "bootstrap" *me* in the event that I have to stop a project and return to it after a period of time
+3. bootstrap *other users* to get up and running faster
 
 Here are the links to some of my posts:
 

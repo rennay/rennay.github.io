@@ -195,6 +195,10 @@ void loop(){}
 
 ## 6. Putting it all together
 
+This is what we will now attempt to achieve:
+
+![Alt text](images/sigfox_overview.png "SigFox Overview")
+
 ### 1.  Send from Arudino IDE
 
 * Change data in Arudino IDE and upload/run Sketch
