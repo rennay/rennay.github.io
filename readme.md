@@ -15,7 +15,7 @@ The image below highlights my areas/technologies of interest which are detailed 
 Here are the links to some of my posts:
 
 ## Hardware
-- [HOWTO: Send a SigFox message using Sqwidnet UnaShield and Arduino UNO](/hw/sigfox/2018-04-27-arduino-sqwidnet.md)
+- [HOWTO: Send a SigFox message using Sqwidnet UnaShield and Arduino UNO](/hw/sigfox)
 - [Commissioning a Raspberry Pi](hw/raspberrpi/2018-04-27-raspberrypi-commission.md)
 
 ## Mobile
