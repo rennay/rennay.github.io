@@ -8,6 +8,8 @@ The intention of this site is (in order of priority):
 2. "bootstrap" *me* in the event that I have to stop a project and return to it after a period of time
 3. bootstrap *other users* to get up and running faster
 
+![Alt text](big_picture.png "Big Picture")
+
 Here are the links to some of my posts:
 
 **Hardware**
