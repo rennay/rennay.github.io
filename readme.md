@@ -1,5 +1,5 @@
 
-# Rennay Dorasamy, Husband, Father, iDad
+# Rennay Dorasamy, Technologist
 
 Hi there, I'm Rennay Dorasamy!
 
