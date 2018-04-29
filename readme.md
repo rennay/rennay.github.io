@@ -25,3 +25,7 @@ Here are the links to some of my posts:
 **Javascript fo Java Dinosaurs**
 - [IDE Selection](/javascript/2018-04-28-ide-selection.md)
 - [Environment Setup](/javascript/2018-04-28-env-setup.md)
+
+**Java/Selenium**
+- [South African Dam Watch](https://dnkrsoln.co.za/damwatch.html)
+- [Item Price Watch](https://dnkrsoln.co.za/itemwatch.html)
