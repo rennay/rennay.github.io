@@ -16,7 +16,8 @@ Here are the links to some of my posts:
 
 ## Hardware
 - [HOWTO: Send a SigFox message using Sqwidnet UnaShield and Arduino UNO](/hw/sigfox)
-- [Commissioning a Raspberry Pi](hw/raspberrpi/2018-04-27-raspberrypi-commission.md)
+- [Commissioning a Raspberry Pi](hw/raspberrypi/2018-04-27-raspberrypi-commission.md)
+- [HOWTO: Configure a GPS Module with Raspberry Pi](hw/raspberrypi/gps/readme.md)
 
 ## Mobile
 ### Android
