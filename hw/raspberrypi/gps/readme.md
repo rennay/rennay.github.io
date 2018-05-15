@@ -1,4 +1,3 @@
-
 # HOWTO: Configure a GPS Module with Raspberry Pi
 
 ## Hardware Setup

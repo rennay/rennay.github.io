@@ -14,7 +14,7 @@ const topicName = 'my-new-topic';
 
 const data = JSON.stringify({ foo: 'bar' });
 
-// // Publishes the message as a string, e.g. "Hello, world!" or JSON.stringify(someObject)
+// Publishes the message as a string, e.g. "Hello, world!" or JSON.stringify(someObject)
 const dataBuffer = Buffer.from(data);
 
 pubsubClient
