@@ -10,6 +10,10 @@ So, with Kubernetes, I needed to get a "sandbox" in which to work.  The simplest
 
 Now, in time to come, Kubernetes-as-a-Service will be as prevalent as "Infrastructure-as-a-Service" or like "Electricity".  It will just be "there".  However, for our project at work, we're deploying Kubernetes on-prem.  For the short to medium term, at least in Africa, we're going to be on-prem.  So, with the mission of "learning Kubernetes" to better understand it.
 
+## kubeadm
+
+You can also use [kubeadm](https://kubernetes.io/docs/setup/independent/create-cluster-kubeadm/) to set up an on-premise cluster.  The instructions are fairly straightfoward and it does work well.  However, note that this is a "vanilla" install and does not set up Role-Based-Access-Control (RBAC), certificates and the Dashboard.
+
 ## Kubernetes The Hard Way
 
 With Kubernetes on my mind, I sought first to understand.  Found a great introductory course on Udacity [Scalable Microservices with Kubernetes
