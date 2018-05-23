@@ -1,4 +1,4 @@
-# kubespray
+# Installing Kubernetes
 
 So I've recently been getting into Kubernetes and from what I am seeing, I'm blown away with the ease and capbility of the Platform.  Initially, when I overheard "Pods", "Deployments", "Replicas", "Ingress" - I ruled this out to the realm of the "Kubernetes Gods" and didn't pay much attention.  However, with a recent project, I've (fortunately) been able to get more "hands on" exposure.
 
