@@ -54,6 +54,8 @@ This application is used to test the availability of an API by:
 4.  Using the return code to get another Access Token
 5.  Using the Access Token to make a call against the backend
 
+![Homer Knows](images/homer_knows_collage.png)
+
 #### [South African Dam Watch](https://dnkrsoln.co.za/damwatch.html)
 As the Western Cape experienced a water shortage in 2018, I was curious to know if this was getting better or worse and also to track other provinces in South Africa.  After some research, I found the [Department of Water Affairs](http://www.dwa.gov.za/Hydrology/Weekly/SumProvince.aspx) site which provided this summary.
 
