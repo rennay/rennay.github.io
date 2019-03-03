@@ -82,4 +82,4 @@ git push
 ```
 > Milestone: Your source code is in version control!
 
-### [Next Step: Firebase Setup](firebase_setup.md)
+### [Next Step: AngularFire Setup](angularfire_setup.md)
