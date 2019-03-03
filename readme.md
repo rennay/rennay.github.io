@@ -15,15 +15,16 @@ The image below highlights my areas/technologies of interest which are detailed 
 Here are the links to some of my posts:
 
 ## Firebase
-- [HOWTO: Setup a new Firebase project](firebase/firebase_setup.md)
-- [HOWTO: Setup Firestore](firebase/firestore_setup.md)
+- [Setup a new Firebase project](firebase/firebase_setup.md)
+- [Setup Firestore](firebase/firestore_setup.md)
 
 ## Mobile
 ### Ionic
-- [HOWTO: Get an Ionic Application Running](ionic/ionic_setup.md)
-- [HOWTO: Configure Ionic to Use Firebase](ionic/angularfire_setup.md)
-- [HOWTO: Testing an Ionic-Firebase Application](ionic/ionic_firebase_testing.md)
-- [HOWTO: Deploying an Ionic Application to Firebase Hosting](ionic/deployment.md)
+- [Get an Ionic Application Running](ionic/ionic_setup.md)
+- [Ionic Project Structure](ionic/project_structure.md)
+- [Configure Ionic to Use Firebase](ionic/angularfire_setup.md)
+- [Testing an Ionic-Firebase Application](ionic/ionic_firebase_testing.md)
+- [Deploying an Ionic Application to Firebase Hosting](ionic/deployment.md)
 
 ### Android
 - [HOWTO: Create an Android GPS Application](mobile/android/MySpeedometer)
