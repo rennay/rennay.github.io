@@ -96,6 +96,7 @@ import { AppRoutingModule } from './app-routing.module';
 import { AngularFireModule } from '@angular/fire';
 import { AngularFirestoreModule } from '@angular/fire/firestore';
 import { environment } from '../environments/environment';
+
 @NgModule({
   declarations: [AppComponent],
   entryComponents: [],
@@ -141,16 +142,18 @@ export class HomePage {
 }
 ```
 
-In /src/app/home/home.page.html, add the following before the **ion-content** tag -
+In /src/app/home/home.page.html, add the following before the **ion-content** closing tag -
 ```
+...
 <ul>
   <li class="text" *ngFor="let item of items | async">
     {{item.name}}
   </li>
 </ul>
+</ion-content>
 ```
 
 ### 3.2. Run your app
-ng serve
+ionic serve
 
 ### [Next Step: Ionic Firebase Testing](ionic_firebase_testing.md)
