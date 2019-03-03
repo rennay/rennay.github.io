@@ -24,7 +24,7 @@ Here are the links to some of my posts:
 - [HOWTO: Create an Android GPS Application](mobile/android/MySpeedometer)
 
 ## Environment
-- [Configuring your environment to use a Proxy](/env/2018-04-27-proxy.md)
+- [Configure your environment to use a Proxy](/env/2018-04-27-proxy.md)
 - [HOWTO: Steps to install Mongo DB](/env/2018-04-27-mongodb-install.md)
 
 ## Javascript fo Java Dinosaurs
