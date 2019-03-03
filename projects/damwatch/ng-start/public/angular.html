@@ -1,0 +1,101 @@
+<html>
+
+<head>
+
+  <!-- AngularJS -->
+  <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.1/angular.min.js"></script>
+
+  <!-- Firebase -->
+  <script src="https://www.gstatic.com/firebasejs/3.6.6/firebase.js"></script>
+
+  <!-- AngularFire -->
+  <script src="https://cdn.firebase.com/libs/angularfire/2.3.0/angularfire.min.js"></script>
+
+  <!-- Latest compiled and minified plotly.js JavaScript -->
+  <script type="text/javascript" src="https://cdn.plot.ly/plotly-latest.min.js"></script>  
+
+  <script src="app.js"></script>
+</head>
+
+<body>
+
+  <div ng-app="app">
+    <div id="message" ng-controller="MyCtrl as ctrl">
+      <pre>
+<!-- {{ ctrl.object | json }}   -->
+[{{ dams.length }}]
+<table>
+<tr ng-repeat="dam in dams">
+    <td>{{ dam.name }}</td>
+    <td>{{ dam.value }}</td>
+  </tr>
+</table>
+    </pre>
+    </div>
+
+
+    <div ng-controller="NewCtrl as ctrl">
+      {{ ctrl.name }}
+    </div>
+
+
+    <h2>AngularJS Sample Application</h2>
+    <div ng-app="mainApp" ng-controller="studentController">
+
+      <table border="0">
+        <tr>
+          <td>Enter first name:</td>
+          <td><input type="text" ng-model="student.firstName"></td>
+        </tr>
+
+        <tr>
+          <td>Enter last name: </td>
+          <td>
+            <input type="text" ng-model="student.lastName">
+          </td>
+        </tr>
+
+        <tr>
+          <td>Name: </td>
+          <td>{{student.fullName()}}</td>
+        </tr>
+
+        <tr>
+          <td>Subject:</td>
+
+          <td>
+            <table>
+              <tr>
+                <th>Name</th>.
+                <th>Marks</th>
+              </tr>
+
+              <tr ng-repeat="subject in student.subjects">
+                <td>{{ subject.name }}</td>
+                <td>{{ subject.marks }}</td>
+              </tr>
+
+            </table>
+          </td>
+
+        </tr>
+      </table>
+
+    </div>
+
+    <div id="tester" style="width:600px;height:250px;"></div>
+
+    <script>
+        TESTER = document.getElementById('tester');
+        Plotly.plot( TESTER, [{
+        x: [1, 2, 3, 4, 5],
+        y: [1, 2, 4, 8, 16],
+        type: 'bar' }], {
+        margin: { t: 0 } } );
+      </script>
+
+  </div>
+
+</body>
+
+</html>

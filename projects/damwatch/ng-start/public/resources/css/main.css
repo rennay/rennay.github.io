@@ -1,0 +1,26 @@
+/*** forms ***/
+.form_cont {
+    max-width: 400px;
+}
+p img {
+    vertical-align: middle;
+}
+#log_form input {
+    width: 100%;
+    padding: 5px;
+}
+.nlsg-c-button {
+    height: 1rem !important;
+    margin-top:10px;
+    margin-bottom: 5px;
+}
+.nlsg-c-form-element__form-group {
+    margin-bottom: 1rem;
+}
+h5 {
+    margin-bottom: 10px !important;
+}
+small {
+    color: #aaa;
+    font-size: 13px;
+}

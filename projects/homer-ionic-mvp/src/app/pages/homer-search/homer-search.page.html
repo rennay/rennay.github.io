@@ -1,0 +1,58 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-menu-button></ion-menu-button>
+    </ion-buttons>
+    <ion-title>
+      Homer Search
+    </ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content padding>
+  <ion-grid>
+    <ion-row>
+      <ion-col>
+        <ion-item>
+          <ion-label position="floating">API</ion-label>
+            <ion-select [(ngModel)]="_api" ok-text="Okay" cancel-text="Dismiss" interface="action-sheet">
+              <ion-select-option value="customers">Customers</ion-select-option>
+              <ion-select-option value="accounts">Accounts</ion-select-option>
+              <!-- <ion-select-option value="Rewards" [disabled]=true>Rewards</ion-select-option>
+              <ion-select-option value="Payments">Payments</ion-select-option> -->
+            </ion-select>
+        </ion-item>
+      </ion-col>
+    </ion-row>
+    <ion-row>
+      <ion-col>
+          <ion-item>
+              <ion-label position="floating">Environment</ion-label>
+              <ion-select [(ngModel)]="_env" ok-text="Okay" cancel-text="Dismiss" interface="action-sheet">
+                  <ion-select-option value="*">All</ion-select-option>
+                <ion-select-option value="live">Live</ion-select-option>
+                <ion-select-option value="sandbox">Sandbox</ion-select-option>
+              </ion-select>
+            </ion-item>
+      </ion-col>
+    </ion-row>
+    <ion-row>
+      <ion-col>
+        <ion-item>
+          <ion-label position="floating">Results</ion-label>
+            <ion-select [(ngModel)]="_limit" ok-text="Okay" cancel-text="Dismiss" interface="action-sheet">
+              <ion-select-option value="6">Last hour</ion-select-option>
+              <ion-select-option value="36">Last 6 hours</ion-select-option>
+              <ion-select-option value="72">Last 12 hours</ion-select-option>
+              <ion-select-option value="144">Last 24 hours</ion-select-option>
+            </ion-select>
+        </ion-item>
+      </ion-col>
+    </ion-row>
+    <ion-row>
+      <ion-col>
+        <ion-button shape="round" color="primary" fill="outline" (click)="search()">Search</ion-button>
+      </ion-col>
+    </ion-row>
+</ion-grid>
+</ion-content>

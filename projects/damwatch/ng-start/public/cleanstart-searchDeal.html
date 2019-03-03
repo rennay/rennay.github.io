@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Sunday 5 August 2018 - Clean Start</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width = device-width, initial-scale = 1">
+    <link rel="stylesheet" href="http://fonts.googleapis.com/css?family=Open+Sans:300,400,700">
+    <link rel="stylesheet" href="https://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.css">
+    <link rel="stylesheet" href="http://demos.jquerymobile.com/1.4.2/_assets/css/jqm-demos.css">
+    <script src="https://code.jquery.com/jquery-1.11.3.min.js"></script>
+    <script src="https://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.js"></script>
+
+    <!-- Firebase App is always required and must be first -->
+    <script src="https://www.gstatic.com/firebasejs/5.3.0/firebase-app.js"></script>
+
+    <!-- Add additional services that you want to use -->
+    <!-- <script src="https://www.gstatic.com/firebasejs/5.3.0/firebase-auth.js"></script> -->
+    <!-- <script src="https://www.gstatic.com/firebasejs/5.3.0/firebase-database.js"></script> -->
+    <script src="https://www.gstatic.com/firebasejs/5.3.0/firebase-firestore.js"></script>
+    <!-- <script src="https://www.gstatic.com/firebasejs/5.3.0/firebase-messaging.js"></script> -->
+    <!-- <script src="https://www.gstatic.com/firebasejs/5.3.0/firebase-functions.js"></script> -->
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.22.2/moment.js"></script>
+</head>
+
+<body>
+    <div data-role="header" data-position="fixed">
+
+    </div>
+
+    <h2 id="outputHeader">Search Deals...</h2>
+    <!-- <select id="_userUID"/>   -->
+    <table>
+        <col width="100">
+        <col width="300">
+        <tr>
+            <td>Search By:</td>
+            <td>
+                <fieldset data-role="controlgroup" data-type="horizontal">
+                    <input type="radio" name="_searchBy" id="_searchByBuyer" value="on" checked="checked">
+                    <label for="_searchByBuyer">Buyer</label>
+                    <input type="radio" name="_searchBy" id="_searchBySeller" value="off">
+                    <label for="_searchBySeller">Seller</label>
+                    <input type="radio" name="_searchBy" id="_searchByCategory" value="off">
+                    <label for="_searchByCategory">Category</label>
+                </fieldset>
+            </td>
+        </tr>
+        <tr>
+            <td>Criteria</td>
+            <td id="_rowUser" style="display: inline;">
+                <select id="_userUID">
+                    <option>Choose User</option>
+                </select>
+            </td>
+            <td id="_rowCategory" style="display: none;">
+                <select name="_category" id="_category" multiple="multiple" data-native-menu="false">
+                    <option>Choose Category</option>
+                    <option value="TV">TV</option>
+                    <option value="CAR">Cars</option>
+                    <option value="TYRE">Tyres</option>
+                </select>
+            </td>
+        </tr>
+        <tr>
+            <td colspan="2">
+                <button id="btnSearchDeals">Search Deals</button>
+            </td>
+        </tr>
+    </table>
+    <br/>
+    <label id="_responseText"></label>
+    <table id="_resultsTable">
+        <tr>
+            <th>Category</th>
+            <th>Description</th>
+            <th>Created</th>
+            <th>Expiry</th>
+            <th>Add Offer</th>
+            <!-- <th>User UID</th>             -->
+        </tr>
+    </table>
+    <!-- /page -->
+
+    <script src="cleanstart-app.js"></script>
+    <script>
+        // A $( document ).ready() block.
+        $(document).ready(function () {
+            console.log("ready!");
+            populateUsers(10);
+        });
+        $("#_searchByBuyer").click(function (event) {
+            document.querySelector("#_rowUser").style.display = "inline";
+            document.querySelector("#_rowCategory").style.display = "none";
+        });
+        $("#_searchBySeller").click(function (event) {
+            document.querySelector("#_rowUser").style.display = "inline";
+            document.querySelector("#_rowCategory").style.display = "none";
+        });
+        $("#_searchByCategory").click(function (event) {
+            document.querySelector("#_rowUser").style.display = "none";
+            document.querySelector("#_rowCategory").style.display = "inline";
+        });
+    </script>
+
+</body>
+
+</html>

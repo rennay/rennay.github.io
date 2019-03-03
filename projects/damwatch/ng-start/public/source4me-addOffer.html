@@ -1,0 +1,148 @@
+<html>
+
+<head>
+    <!-- Firebase App is always required and must be first -->
+    <script src="https://www.gstatic.com/firebasejs/5.3.0/firebase-app.js"></script>
+
+    <!-- Add additional services that you want to use -->
+    <!-- <script src="https://www.gstatic.com/firebasejs/5.3.0/firebase-auth.js"></script> -->
+    <!-- <script src="https://www.gstatic.com/firebasejs/5.3.0/firebase-database.js"></script> -->
+    <script src="https://www.gstatic.com/firebasejs/5.3.0/firebase-firestore.js"></script>
+    <!-- <script src="https://www.gstatic.com/firebasejs/5.3.0/firebase-messaging.js"></script> -->
+    <!-- <script src="https://www.gstatic.com/firebasejs/5.3.0/firebase-functions.js"></script> -->
+
+    <!-- <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.css">
+    <script src="https://code.jquery.com/jquery-1.11.3.min.js"></script>
+    <script src="https://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.js"></script> -->
+
+</head>
+
+<body>
+
+    <h1 id="outputHeader">Add Offer...</h1>
+    <table>
+        <tr>
+            <td>Deal UID:</td>
+            <td>
+                <input type="textfield" id="dealUID" size="50" />
+            </td>
+        </tr>
+        <tr>
+            <td>User UID (Seller):</td>
+            <td>
+                <select id="userUID" />
+            </td>
+        </tr>
+        <tr>
+            <td>Description:</td>
+            <td>
+                <input type="textfield" id="description" size="50" />
+            </td>
+        </tr>
+        <tr>
+            <td>Fulfilment Date:</td>
+            <td>
+                <input type="date" id="fulfilmentDate" value="2018-08-11" />
+            </td>
+        </tr>
+
+    </table>
+    <br/>
+    <table>
+        <tr>
+            <td>Price:</td>
+            <td>
+                <input type="textfield" id="price" size="100" />
+            </td>
+        </tr>
+    </table>
+    <br/>
+
+    <table>
+        <tr>
+            <td>Location:</td>
+            <td>
+                <input type="textfield" id="latitude" size="23" />
+                <input type="textfield" id="longitude" size="24" />
+            </td>
+        </tr>
+        <tr>
+            <td>Size (inch):</td>
+            <td>
+                <input type="range" name="rangeInput" min="42" max="75" value="50" onchange="document.getElementById('size').value=this.value; ">
+                <input type="text" id="size" value="50">
+            </td>
+        </tr>
+        <tr>
+                <td>Refresh (Hz):</td>
+                <td>
+                    <input type="range" name="rangeInput" min="100" max="400" value="200" onchange="document.getElementById('refresh').value=this.value; ">
+                    <input type="text" id="refresh" value="200">
+                </td>
+            </tr>
+        <tr>
+            <td>
+                Manfacturer:
+            </td>
+            <td>
+                <input type="radio" name="manufacturer" value="Sony" id="manufacturer1" />Sony
+                <input type="radio" name="manufacturer" value="Samsung" id="manufacturer2" />Samsung
+                <input type="radio" name="manufacturer" value="LG" id="manufacturer3" />LG
+                <input type="radio" name="manufacturer" value="Other" id="manufacturer4" checked/>Other
+            </td>
+        </tr>
+        <tr>
+            <td>Guarantee (Months):</td>
+            <td>
+                <input type="range" name="rangeInput" min="0" max="60" value="12" onchange="document.getElementById('guarantee').value=this.value; ">
+                <input type="text" id="guarantee" value="12">
+            </td>
+        </tr>
+        <tr>
+            <td>
+                Quality:
+            </td>
+            <td>
+                <input type="checkbox" name="quality1" id="quality1" value="LCD">LCD
+                <input type="checkbox" name="quality2" id="quality2" value="LED">LED
+                <input type="checkbox" name="quality3" id="quality3" value="FHD">Full HD
+                <br>
+                <input type="checkbox" name="quality4" id="quality4" value="QLED">QLED
+                <input type="checkbox" name="quality5" id="quality5" value="UHD">QLED
+                <input type="checkbox" name="quality6" id="quality6" value="4K">4K
+
+            </td>
+        </tr>
+        <tr>
+            <td>Availability (Days):</td>
+            <td>
+                <input type="range" name="rangeInput" min="1" max="14" value="7" onchange="document.getElementById('availability').value=this.value; ">
+                <input type="text" id="availability" value="7">
+            </td>
+        </tr>
+        <tr>
+            <td>
+                Seller Type:
+            </td>
+            <td>
+                <input type="radio" name="sellerType" value="New" id="sellerType1" checked/>New
+                <input type="radio" name="sellerType" value="Verified" id="sellerType2" checked/>Verified
+                <input type="radio" name="sellerType" value="Online" id="sellerType3" />Online
+                <input type="radio" name="sellerType" value="Store" id="sellerType4" />Store
+            </td>
+        </tr>
+
+    </table>
+    <br/>
+    <button id="btnAddOffer">Add Offer</button>
+    <br/>
+    <!-- <br/>
+    <textarea rows="10" cols="80" id="responseText">
+    ...
+    </textarea> -->
+
+    <script src="source4me-app.js"></script>
+</body>
+
+</html>

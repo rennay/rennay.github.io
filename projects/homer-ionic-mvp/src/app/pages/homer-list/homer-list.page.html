@@ -1,0 +1,35 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-menu-button></ion-menu-button>
+    </ion-buttons>
+    <ion-title>
+      {{ _title }}
+    </ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content padding>
+  <ion-list *ngFor="let _result of _homer_list | async" lines="inset">
+    <ion-item detail (click)="load(_api, _result.id)">
+      <ion-row>
+        <ion-col *ngIf="_result.status;else other_content">
+          <!-- <ion-img src="assets/icon/homer-woohoo-icon.jpg"></ion-img> -->
+          <ion-img src="assets/icon/homer-woohoo-icon.png"></ion-img>
+        </ion-col>
+
+        <ng-template #other_content>
+          <ion-img src="assets/icon/homer-doh-icon.jpg"></ion-img>
+        </ng-template>
+
+        <ion-col *ngIf="_allenv;else no_env_content">
+            <ion-label>{{ _result.start_time.seconds * 1000 | date:'MMM d, y, HH:mm:ss' }}<br /><br />{{ _result.env }}</ion-label>
+        </ion-col>
+
+        <ng-template #no_env_content>
+          <ion-label>{{ _result.start_time.seconds * 1000 | date:'MMM d, y, HH:mm:ss' }}</ion-label>          
+        </ng-template>
+      </ion-row>
+    </ion-item>
+  </ion-list>
+</ion-content>

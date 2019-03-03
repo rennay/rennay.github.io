@@ -1,0 +1,15 @@
+/* ------------------------
+------- Forms -------------
+------------------------ */
+
+.nlsg-c-form-element {
+	max-width: 400px;
+	width: 100%;
+	float: left;
+	margin: 0.5rem 0 0;
+
+	&--no-margin {
+		margin: 0 !important;
+		max-width: 400px;
+	}
+}

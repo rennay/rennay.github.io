@@ -1,0 +1,457 @@
+// Imports the Google Cloud storage client library
+// var storage = require('@google-cloud/storage')();
+const storage = require('@google-cloud/storage')({ keyFilename: 'NewFriendlyChat-f4fddf5edbf1.json' });
+
+const Firestore = require('@google-cloud/firestore');
+const firestore = new Firestore({
+    projectId: 'newfriendlychat-63187',
+    keyFilename: 'NewFriendlyChat-f4fddf5edbf1.json',
+});
+
+// Imports the Google Cloud client library
+var pubsub = require('@google-cloud/pubsub')();
+
+var admin = require("firebase-admin");
+
+var serviceAccount = require('./NewFriendlyChat-f4fddf5edbf1.json');
+
+admin.initializeApp({
+    credential: admin.credential.cert(serviceAccount),
+    databaseURL: 'https://newfriendlychat-63187.firebaseio.com/'
+});
+
+// admin.initializeApp(functions.config().firebase);
+
+var moment = require('moment');
+const path = require('path');
+
+var GoogleURL = require('google-url');
+googleUrl = new GoogleURL({ key: 'AIzaSyAtuya-xJpQFBHoT57lOPpc8bNMUOPRfrA' });
+
+/**
+ * HTTP Cloud Function.
+ *
+ * @param {Object} req Cloud Function request context.
+ * @param {Object} res Cloud Function response context.
+ */
+exports.helloSaturday = (req, res) => {
+    console.log("helloSaturday function invoked...")
+    res.send('Hello World!');
+};
+
+exports.housekeepFirestore = (req, res) => {
+    console.log("starting housekeepFirestore...");
+
+    var now = moment().utcOffset(120);
+    var nowString = now.format("YYYY-MM-DD");
+    console.log("nowString: " + nowString);
+
+    let imagesRef = firestore.collection('images');
+    var allImages = imagesRef.get().then(snapshot => {
+        snapshot.forEach(doc => {
+            console.log(`[${doc.id}] => ${doc.data()}  -- [${doc.ref.path}]`);
+
+            let documentRef = firestore.doc(doc.ref.path);
+            documentRef.getCollections().then(collections => {
+                for (let collection of collections) {
+                    try {
+                        // console.log(`Found subcollection with id: ${collection.id}`);
+                        var dateFolder = moment(collection.id, "YYYY-MM-DD");
+
+                        var diffBetweenDates = now.diff(dateFolder, 'days');
+                        console.log(`id: ${collection.id} path: ${collection.path} diffBetweenDates:  ${diffBetweenDates}`);
+                        if (diffBetweenDates > 3) {
+                            console.log("Deleting Collection...");
+                            deleteCollection(firestore, collection.path, 10);
+                        }
+                    }
+                    catch (err) {
+                        console.log("error during processing of collection :" + collection.id + ": " + err);
+                    }
+                }
+            }).catch(err => {
+                console.log('Error getting documents', err);
+            });
+        });
+        res.status(200).send("Complete... " + nowString);
+    })
+        .catch(err => {
+            console.log('Error getting images', err);
+            res.status(400).send('Error publishing message... ', err);
+        });
+}
+
+/**
+ * Generic background Cloud Function to be triggered by Cloud Storage.
+ *
+ * @param {object} event The Cloud Functions event.
+ * @param {function} callback The callback function.
+ */
+exports.imageFinalize = (event, callback) => {
+    const file = event.data;
+    const context = event.context;
+
+    console.log(`Event ${context.eventId}`);
+    console.log(`  Event Type: ${context.eventType}`);
+    console.log(`  Bucket: ${file.bucket}`);
+    console.log(`  File: ${file.name}`);
+    console.log(`  Metageneration: ${file.metageneration}`);
+    console.log(`  Created: ${file.timeCreated}`);
+    console.log(`  Updated: ${file.updated}`);
+
+    const object = event.data; // The Storage object.
+
+    const fileBucket = object.bucket; // The Storage bucket that contains the file.
+    const filePath = object.name; // File path in the bucket.
+    const contentType = object.contentType; // File content type.
+    const resourceState = object.resourceState; // The resourceState is 'exists' or 'not_exists' (for file/folder deletions).
+    const metageneration = object.metageneration; // Number of times metadata has been generated. New objects have a value of 1.
+
+    // console.log("Retrieving metadata...");
+    var metadata = object.metadata;
+    for (var key in metadata) {
+        var value = metadata[key];
+
+        console.log("key: " + key + " -- value: " + value);
+    }
+
+    var serial = metadata.serial;
+    if (!serial) {
+        serial = "ABC-XYZ-123";
+    }
+    var timeTaken = file.timeCreated;
+    if (metadata.timeTaken) {
+        // timeTaken = moment.unix(metadata.timeSinceEpoch).utcOffset(120);
+        timeTaken = new Date(metadata.timeTaken);
+    }
+    console.log(`serial*: ${serial} timeTaken***: ${timeTaken}`);
+
+    var myBucket = storage.bucket(fileBucket);
+    var filename = myBucket.file(filePath);
+
+    var now = moment();
+    var expiryTime = now.add(72, 'hours');
+
+    // Generate a URL that allows temporary access to download your file.
+    console.log("Expiry in 72 hours...");
+    var config = {
+        action: 'read',
+        expires: expiryTime
+    };
+
+    console.log("-- getSignedUrl + firestore + promise...");
+    const my_promise = filename.getSignedUrl(config).then(downloadURL => {
+        var imagesRef = firestore.collection("images");
+        var dateFolder = moment().utcOffset(120).format("YYYY-MM-DD");
+        console.log("dateFolder: " + dateFolder);
+
+        googleUrl.shorten(downloadURL, function (err, shortUrl) {
+            console.log("-- " + shortUrl);
+
+            var imageData = {
+                serial: serial,
+                downloadURL: shortUrl,
+                timeTaken: timeTaken,
+                timeLoaded: new Date()
+            };
+            console.log(imageData);
+
+            imagesRef.doc(serial).collection(dateFolder).add(imageData).then(ref => {
+                console.log('Added document with ID: ', ref.id, ' at: ' + ref.path);
+
+                const topicName = 'my-topic';
+                var destination_file_name = "/tmp/" + path.basename(file.name);
+                const data = JSON.stringify(
+                    {
+                        bucket: fileBucket,
+                        source_blob_name: filePath,
+                        destination_file_name: destination_file_name,
+                        docref_path: ref.path
+                    });
+                // Publishes the message as a string
+                const dataBuffer = Buffer.from(data);
+                console.log("Publishing message...");
+                // pubsub
+                //     .topic(topicName)
+                //     .publisher()
+                //     .publish(dataBuffer)
+                //     .then(results => {
+                //         const messageId = results[0];
+                //         console.log(`Message ${messageId} published.`);
+                //     })
+                //     .catch(err => {
+                //         console.error('Error publishing message: ', err);
+                //     });
+
+            }).catch(function (error) {
+                console.log("Got an error: ", error);
+            });
+        });
+    }).catch(err => {
+        console.log("error: " + err);
+        console.error(err);
+    });
+
+    // filename.getSignedUrl(config, function (err, downloadURL) {
+    //     if (err) {
+    //         console.log("error: " + err);
+    //         console.error(err);
+    //     }
+    //     else {
+
+    //     }
+    // });
+
+    callback();
+};
+
+exports.imageMetadataUpdate = (event, callback) => {
+    const file = event.data;
+    const context = event.context;
+
+    console.log(`Event ${context.eventId}`);
+    console.log(`  Event Type: ${context.eventType}`);
+    console.log(`  Bucket: ${file.bucket}`);
+    console.log(`  File: ${file.name}`);
+    console.log(`  Metageneration: ${file.metageneration}`);
+    console.log(`  Created: ${file.timeCreated}`);
+    console.log(`  Updated: ${file.updated}`);
+
+    callback();
+};
+
+exports.imageDelete = (event, callback) => {
+    const file = event.data;
+    const context = event.context;
+
+    console.log(`Event ${context.eventId}`);
+    console.log(`  Event Type: ${context.eventType}`);
+    console.log(`  Bucket: ${file.bucket}`);
+    console.log(`  File: ${file.name}`);
+    console.log(`  Metageneration: ${file.metageneration}`);
+    console.log(`  Created: ${file.timeCreated}`);
+    console.log(`  Updated: ${file.updated}`);
+
+    callback();
+};
+
+function deleteCollection(db, collectionPath, batchSize) {
+    var collectionRef = db.collection(collectionPath);
+    var query = collectionRef.orderBy('__name__').limit(batchSize);
+
+    return new Promise((resolve, reject) => {
+        deleteQueryBatch(db, query, batchSize, resolve, reject);
+    });
+}
+
+function deleteQueryBatch(db, query, batchSize, resolve, reject) {
+    query.get()
+        .then((snapshot) => {
+            // When there are no documents left, we are done
+            if (snapshot.size == 0) {
+                return 0;
+            }
+
+            // Delete documents in a batch
+            var batch = db.batch();
+            snapshot.docs.forEach((doc) => {
+                batch.delete(doc.ref);
+            });
+
+            return batch.commit().then(() => {
+                return snapshot.size;
+            });
+        }).then((numDeleted) => {
+            if (numDeleted === 0) {
+                resolve();
+                return;
+            }
+
+            // Recurse on the next process tick, to avoid
+            // exploding the stack.
+            process.nextTick(() => {
+                deleteQueryBatch(db, query, batchSize, resolve, reject);
+            });
+        })
+        .catch(reject);
+}
+
+/**
+ * Responds to any HTTP request that can provide a "message" field in the body.
+ *
+ * @param {Object} req Cloud Function request context.
+ * @param {Object} res Cloud Function response context.
+ */
+exports.damWatchTrigger = (req, res) => {
+    var data = { 
+        topicName: 'my-topic',
+        collectionName: 'newdam',
+        itemID: 'rE53zMDUCLdVyLnCHAy1',
+        ID: 'DAMDWA',
+        endpoint: 'http://www.dwa.gov.za/Hydrology/Weekly/SumProvince.aspx'
+    };
+    var now = moment().utcOffset(120);
+    var nowString = now.format("YYYY-MM-DD hh:mm:SS");    
+    res.status(200).send("Complete... " + nowString);    
+    
+    publishData(data);
+};
+
+exports.itemWatchTrigger = (req, res) => {
+    var collectionName = "items";
+    var itemsRef = firestore.collection(collectionName);
+
+    var now = moment().utcOffset(120);
+    var nowString = now.format("YYYY-MM-DD hh:mm:SS");    
+    res.status(200).send("Complete... " + nowString);    
+};
+
+/**
+ * Background Cloud Function to be triggered by Pub/Sub.
+ *
+ * @param {object} event The Cloud Functions event.
+ * @param {function} callback The callback function.
+ */
+exports.helloItemPubSub = (event, callback) => {
+    const pubsubMessage = event.data;
+
+    console.log("-- helloItemPubSub");
+
+    var allItems = itemsRef.get().then(snapshot => {
+        snapshot.forEach(itemDoc => {
+            console.log(`[${itemDoc.id}] => ${itemDoc.data()}  -- [${itemDoc.ref.path}]`);
+            var itemID = itemDoc.id;
+            var itemDocumentReference = itemDoc.ref;
+            // console.log("-- " + itemDocumentReference);
+            var collectorsCollectionReference = itemDocumentReference.collection("collectors");
+
+            // collectorsCollectionReference.onSnapshot(function(querySnapshot) {
+            collectorsCollectionReference.get().then(function (querySnapshot) {
+                querySnapshot.forEach(function (collectorDocShallow) {
+                    var collectorID = collectorDocShallow.id;
+
+                    var collectorDocumentReference = collectorDocShallow.ref;
+                    collectorDocumentReference.get().then(collectorDocDeep => {
+                        var data = { 
+                            topicName: 'my-item-topic',
+                            collectionName: collectionName,
+                            itemID: itemID,
+                            ID: collectorID,
+                            endpoint: collectorDocDeep.data().endpoint
+                        };
+                        publishData(data);                    
+                    });
+                })
+            })
+        });
+    });    
+
+    callback();
+};
+
+function publishData(data) {
+        var topicName = data.topicName;
+
+        // -- jsonString: [{"collectionName":"newdam","itemID":"rE53zMDUCLdVyLnCHAy1","ID":"DAMDWA","endpoint":"http://www.dwa.gov.za/Hydrology/Weekly/SumProvince.aspx","results":[]}]        
+        const dataString = JSON.stringify({
+            collectionName: data.collectionName,
+            itemID: data.itemID,
+            ID: data.ID,
+            endpoint: data.endpoint,
+            results: []
+        });
+        // Publishes the message as a string, e.g. "Hello, world!" or JSON.stringify(someObject)
+        const dataBuffer = Buffer.from(dataString);
+        console.log("publishing message - " + dataString);
+        pubsub
+            .topic(topicName)
+            .publisher()
+            .publish(dataBuffer)
+            .then(results => {
+                const messageId = results[0];
+                console.log(`Message ${messageId} published.`);
+            })
+            .catch(err => {
+                console.error('ERROR:', err);
+            });        
+}
+
+// function httpResponse(res, returnData) {
+//     var message = "";
+//     for (i=0; i < returnData.message.length; i++) {
+//         message = message + returnData.message[i] + " -- ";
+//     }
+//     res.status(returnData.code).send(message);
+// }
+
+/**
+ * Responds to any HTTP request that can provide a "message" field in the body.
+ *
+ * @param {Object} req Cloud Function request context.
+ * @param {Object} res Cloud Function response context.
+ */
+exports.helloWorld = (req, res) => {
+    var now = moment().utcOffset(120);
+
+    // HTTP POST
+    console.log("HTTP POST");
+    
+    const msisdn = req.body.msisdn;
+    const status = req.body.status;
+    const eventId = req.body.eventId;
+
+    console.log(`msisdn: [${msisdn}]`);
+    console.log(`status: [${status}]`);
+    console.log(`eventId: [${eventId}]`);    
+
+    var nowString = now.format("YYYY-MM-DD hh:mm:SS");    
+
+    console.log("helloWorld... " + nowString);    
+
+    res.status(200).send("True 123");    
+};
+
+// /**
+//  * Background Cloud Function to be triggered by Pub/Sub.
+//  *
+//  * @param {object} event The Cloud Functions event.
+//  * @param {function} callback The callback function.
+//  */
+// exports.helloPubSub = (event, callback) => {
+//     const pubsubMessage = event.data;
+
+//     var data = JSON.parse(Buffer.from(pubsubMessage.data, 'base64').toString());
+//     var location = {
+//         "latitude": data.latitude,
+//         "longitude": data.longitude,
+//         "altitude": data.altitude,
+//         "speed": data.speed,
+//         "gps_time": data.time,
+//         "provider": "neo_gps_7m",
+//         "timestamp": new Date().getTime()
+//     }
+
+//     admin.database().ref('/locations').push(location).then(snapshot => {
+//         callback();
+//     }).catch((error) => {
+//         console.log("Error while processing: " + error);
+//         callback();
+//     });;
+// };
+
+/**
+ * Background Cloud Function to be triggered by Pub/Sub.
+ * This function is exported by index.js, and executed when
+ * the trigger topic receives a message.
+ *
+ * @param {object} event The Cloud Functions event.
+ * @param {function} callback The callback function.
+ */
+exports.helloPubSub = (event, callback) => {
+    const pubsubMessage = event.data;
+    const name = pubsubMessage.data ? Buffer.from(pubsubMessage.data, 'base64').toString() : 'World';
+  
+    console.log(`Hello, ${name}!`);
+  
+    callback();
+  };

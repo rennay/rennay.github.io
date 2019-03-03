@@ -1,0 +1,18 @@
+.nlsg-c-form-element {
+	/* ---------------------------
+	------- Number Select --------
+	--------------------------- */
+
+	&__select-menu {
+
+		@media (min-width: 768px) {
+
+			&--number-inputs {
+				display: block;
+				width: 92px !important;
+				height: 50px;
+				margin-bottom: 1.7em;
+			}
+		}
+	}
+}

@@ -1,0 +1,70 @@
+/* ---------------------
+------- Tooltip --------
+--------------------- */
+
+.nlsg-c-tooltip {
+	position: relative;
+	display: inline-block;
+	color: $secondary;
+	cursor: pointer;
+
+	&__tooltiptext {
+		height: 0;
+		width: 100%;
+		background: $very-light-grey;
+		margin-top: 0 !important;
+		border-left: 2px solid $secondary;
+		bottom: 2rem;
+		right: 50%;
+		opacity: 0;
+		overflow: auto;
+		transition: all 0.5s;
+
+		h6 {
+			color: $secondary;
+			margin: 0;
+			padding-bottom: 0.3rem;
+			font-family: $text-medium;
+			font-size: 1.125rem;
+		}
+		p {
+			font-size: 1rem;
+			margin: 0;
+		}
+
+		&:after {
+			content: "";
+			opacity: 0;
+			position: absolute;
+			height: 2.5rem;
+			width: 70%;
+			background: url(../img/bottom-arrow-tooltip.svg) no-repeat center center;
+			transition: all 0.1s;
+
+			@media (min-width: 768px) {
+				width: 716px;
+			}
+		}
+	}
+}
+
+.open-tooltip {
+	display: block;
+	opacity: 1;
+	height: auto;
+	transition: all 0.5s;
+	padding: 1rem;
+	margin-top: 1rem !important;
+	margin-right: 0;
+	margin-bottom: 1rem;
+
+	&:after {
+		opacity: 1;
+		margin-right: 0.7rem;
+		transition: all 0.9s;
+	}
+	&__margin-right-tooltip {
+		margin-right: 0.9rem;
+		transition: all 0.5s;
+	}
+}

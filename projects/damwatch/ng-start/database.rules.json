@@ -1,0 +1,25 @@
+{
+  "rules": {
+    "items" : {
+      ".read": true,
+      ".write": true
+    },
+    "dams" : {
+      ".read": true,
+      ".write": true
+    },
+    "angular" : {
+      ".read": true,
+      ".write": true
+    },
+    "geofire" : {
+      ".read": true,
+      ".write": true
+    },
+    "locations" : {
+      ".read": true,
+      ".write": true
+    }
+  }
+}
+

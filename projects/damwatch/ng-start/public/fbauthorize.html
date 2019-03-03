@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <title>Authorise</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <!--styles -->
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" crossorigin="anonymous">
+        <link rel="stylesheet" href="resources/css/nedbank.css" />
+        <link rel="stylesheet" href="resources/css/main.css" />
+    </head>
+    <body>
+        
+        <div class="container" style="padding-top:10px;">
+            <div class="row">
+                <div class="col-lg-4 col-sm-4 col-md-4 col-2"><img src="resources/img/logo.svg" width="30px" alt="NedbankID" /></div>
+                <div class="col-lg-8 col-md-8 col-sm-8 col-10 justify-content-end"><h5>MessengerBot Request</h5></div>
+            </div>
+            <hr class="nlsg-c-divider" style="margin: 10px auto 15px auto;border-color:#aaa;">
+           <div class="row">
+               <div class="col-12">
+                   <p style="margin-top:0;">
+                       MessengerBot is requesting access to:
+                   </p>
+               </div>
+               <div class="col-6"><p><img src="resources/img/check.svg" width="20px"> Account info</p></div>
+               <div class="col-6"><p><img src="resources/img/check.svg" width="20px"> Customer info</p></div>
+               <div class="col-6"><p><img src="resources/img/check.svg" width="20px"> Rewards info</p></div>
+               <div class="col-6"><p><img src="resources/img/check.svg" width="20px"> Make payments</p></div>
+               
+           </div>
+            <div class="form_cont">
+                <form class="nlsg-c-form-element">
+                    <div class="nlsg-c-two-buttons">
+                        <a href="https://us-central1-newfriendlychat-63187.cloudfunctions.net/redirect?code=ABC-XYZ-123" class="nlsg-c-button" style="color:#fff !important">Yes</a>
+                        <button class="nlsg-c-button nlsg-c-button--secondary" type="button" onclick=myFunction()>No</button>
+                    </div>
+                </form>
+            </div>
+            <p id="demo"></p>
+        </div>
+
+        <!--scripts -->
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" crossorigin="anonymous"></script>
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" crossorigin="anonymous"></script>
+        <script src="resources/js/main.js"></script>
+        <script>
+            (function(d, s, id){
+                var js, fjs = d.getElementsByTagName(s)[0];
+                if (d.getElementById(id)) {return;}
+                js = d.createElement(s); js.id = id;
+                js.src = "//connect.facebook.com/en_US/messenger.Extensions.js";
+                fjs.parentNode.insertBefore(js, fjs);
+                }(document, 'script', 'Messenger'));        
+        </script> 
+        <script>            
+            function myFunction() {
+                document.getElementById("demo").innerHTML = "Hello World";
+                MessengerExtensions.requestCloseBrowser(function success() {
+                    // webview closed
+                }, function error(err) {
+                    document.getElementById("demo").innerHTML = err;
+                });                      
+            }                  
+        </script>
+    </body>
+</html>

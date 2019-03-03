@@ -1,0 +1,82 @@
+.nlsg-c-form-element {
+	/* ---------------------------
+	------- Search Select --------
+	--------------------------- */
+	&__show-mobile-search-select {
+		margin-top: -1.2em;
+		padding: 1rem;
+		
+		@media (min-width: 468px) {
+			display: none;
+		}
+	}
+	.nullResults {
+		display: none;
+		label {
+			padding: 0;
+		}
+	}
+	/* Selects not be be shown on screen sizes smaller than 768px */
+	&__search-select-menu {
+		display: none;
+		@media (min-width: 468px) {
+			display: block;
+			width: 100%;
+			position: relative;
+			cursor: pointer;
+			&__arrow-button {
+				float: right;
+				position: relative;
+				margin-right: 20px;
+			}
+			&__search-list {
+				position: relative;
+				z-index: 100;
+				border-bottom: 2px solid $primary;
+				border-left: 2px solid $primary;
+				border-right: 2px solid $primary;
+				margin-top: -3.4rem;
+				margin-bottom: 1rem;
+				max-height: 320px;
+				overflow-y: auto;
+			}
+			&__search-item {
+				padding: 0.9rem;
+				height: 2.88rem;
+				color: $light-grey;
+				font-size: 1rem !important;
+				background: #fff;
+				&:hover {
+					background-color: $very-light-grey;
+					color: $medium-grey;
+				}
+				&:first-of-type {
+					padding: 0.8rem;
+					border-top: 2px solid $very-light-grey;
+				}
+			}
+			.js-focus {
+				border-color: $primary !important;
+				outline: none  !important;
+			}
+			.js-focus-keyClicked {
+				background-color: $very-light-grey;
+				color: $medium-grey;
+			}
+			.js-focus-keyClicked-global {
+				background-color: $very-light-grey;
+				color: $medium-grey;
+			}
+			.js-dropdown-search-select {
+				display: none;
+			}
+			.js-up-arrow {
+				display: none;
+				top: -37px;
+			}
+			.js-down-arrow {
+				top: -34px;
+			}
+		}
+	}
+}

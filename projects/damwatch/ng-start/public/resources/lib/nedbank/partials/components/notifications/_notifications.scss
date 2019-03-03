@@ -1,0 +1,47 @@
+/* ---------------------
+----- Notification -----
+--------------------- */
+
+.nlsg-c-notification {
+	position: relative;
+	display: flex;
+	flex-direction: column;
+	color: $secondary;
+	cursor: pointer;
+	width: 100%;
+	background: $very-light-grey;
+	margin-top: 0 !important;
+	padding: 1rem;
+	border-left: 2px solid $secondary;
+	overflow: auto;
+	transition: all 0.5s;
+
+	&:after {
+		position: absolute;
+		top: 20px;
+		right: 20px;
+		content: '';
+		width: 20px;
+		height: 20px;
+		background: url(./../img/clear-search.svg) left center no-repeat;
+	}
+
+	h6 {
+		color: $secondary;
+		margin: 0;
+		padding-right: 3rem;
+		padding-bottom: 0.3rem;
+		font-family: $text-medium;
+		font-size: 1.125rem;
+	}
+
+	p {
+		font-size: 1rem;
+		margin: 0;
+		padding-right: 3rem;
+	}
+}
+
+.js-close-notification {
+	opacity: 0;
+}

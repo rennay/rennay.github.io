@@ -1,0 +1,164 @@
+/* ------------------------
+------- Typography --------
+------------------------ */
+
+/**
+ * @license
+ * MyFonts Webfont Build ID 3491595, 2017-12-01T03:36:55-0500
+ * 
+ * The fonts listed in this notice are subject to the End User License
+ * Agreement(s) entered into by the website owner. All other parties are 
+ * explicitly restricted from using the Licensed Webfonts(s).
+ * 
+ * You may obtain a valid license at the URLs below.
+ * 
+ * Webfont: FF Mark Web Pro Regular by FontFont
+ * URL: https://www.myfonts.com/fonts/fontfont/mark/pro-regular/
+ * Copyright: 2016 published by Monotype GmbH
+ * 
+ * Webfont: FF Mark Web Pro Thin by FontFont
+ * URL: https://www.myfonts.com/fonts/fontfont/mark/pro-thin/
+ * Copyright: 2013 published by FontShop International GmbH
+ * 
+ * Webfont: FF Mark Web Pro Light by FontFont
+ * URL: https://www.myfonts.com/fonts/fontfont/mark/pro-light/
+ * Copyright: 2013 published by FontShop International GmbH
+ * 
+ * Webfont: FF Mark Web Pro Italic by FontFont
+ * URL: https://www.myfonts.com/fonts/fontfont/mark/pro-italic/
+ * Copyright: 2013 published by FontShop International GmbH
+ * 
+ * Webfont: FF Mark Web Pro Medium by FontFont
+ * URL: https://www.myfonts.com/fonts/fontfont/mark/pro-medium/
+ * Copyright: 2013 published by FontShop International GmbH
+ * 
+ * Webfont: FF Mark Web Pro Bold by FontFont
+ * URL: https://www.myfonts.com/fonts/fontfont/mark/pro-bold/
+ * Copyright: 2013 published by FontShop International GmbH
+ * 
+ * 
+ * License: https://www.myfonts.com/viewlicense?type=web&buildid=3491595
+ * Licensed pageviews: 50,000
+ * 
+ * © 2017 MyFonts Inc
+*/
+
+
+/* @import must be at top of file, otherwise CSS will not work */
+@import url("//hello.myfonts.net/count/35470b");
+
+  
+@font-face {font-family: 'FFMarkWebProRegular';src: url('../fonts/35470B_0_0.eot');src: url('../fonts/35470B_0_0.eot?#iefix') format('embedded-opentype'),url('../fonts/35470B_0_0.woff2') format('woff2'),url('../fonts/35470B_0_0.woff') format('woff'),url('../fonts/35470B_0_0.ttf') format('truetype');}
+ 
+  
+@font-face {font-family: 'FFMarkWebProThin';src: url('../fonts/35470B_1_0.eot');src: url('../fonts/35470B_1_0.eot?#iefix') format('embedded-opentype'),url('../fonts/35470B_1_0.woff2') format('woff2'),url('../fonts/35470B_1_0.woff') format('woff'),url('../fonts/35470B_1_0.ttf') format('truetype');}
+ 
+  
+@font-face {font-family: 'FFMarkWebProLight';src: url('../fonts/35470B_2_0.eot');src: url('../fonts/35470B_2_0.eot?#iefix') format('embedded-opentype'),url('../fonts/35470B_2_0.woff2') format('woff2'),url('../fonts/35470B_2_0.woff') format('woff'),url('../fonts/35470B_2_0.ttf') format('truetype');}
+ 
+  
+@font-face {font-family: 'FFMarkWebProItalic';src: url('../fonts/35470B_3_0.eot');src: url('../fonts/35470B_3_0.eot?#iefix') format('embedded-opentype'),url('../fonts/35470B_3_0.woff2') format('woff2'),url('../fonts/35470B_3_0.woff') format('woff'),url('../fonts/35470B_3_0.ttf') format('truetype');}
+ 
+  
+@font-face {font-family: 'FFMarkWebProMedium';src: url('../fonts/35470B_4_0.eot');src: url('../fonts/35470B_4_0.eot?#iefix') format('embedded-opentype'),url('../fonts/35470B_4_0.woff2') format('woff2'),url('../fonts/35470B_4_0.woff') format('woff'),url('../fonts/35470B_4_0.ttf') format('truetype');}
+ 
+  
+@font-face {font-family: 'FFMarkWebProBold';src: url('../fonts/35470B_5_0.eot');src: url('../fonts/35470B_5_0.eot?#iefix') format('embedded-opentype'),url('../fonts/35470B_5_0.woff2') format('woff2'),url('../fonts/35470B_5_0.woff') format('woff'),url('../fonts/35470B_5_0.ttf') format('truetype');}
+
+/* styles */
+body,
+html,
+input,
+textarea,
+keygen,
+select,
+button {
+	/* style | size | family */
+	font-family: $text-regular;
+	-webkit-font-smoothing: antialiased;
+	-moz-font-smoothing: antialiased;
+	font-smoothing: antialiased;
+	font-size: 16px;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+	color: $dark-grey;
+	line-height: 1.3;
+
+	&.header-block {
+		padding: 0.3rem;
+		background-color: $highlight;
+		float: left;
+	}
+}
+
+h1 {
+	color: $primary;
+	font-size: 3.75rem;
+	margin-bottom: 1.875rem;
+}
+
+h2 {
+	font-family: $text-medium;
+	font-size: 2.5rem;
+	margin-bottom: 1.875rem;
+}
+
+h3 {
+	font-size: 1.875rem;
+	margin-bottom: 1.875rem;
+}
+
+h4 {
+	font-family: $text-medium;
+	font-size: 1.75rem;
+}
+
+h5 {
+	font-size: 1.25rem;
+	margin-bottom: 1.875rem;
+}
+
+h6 {
+	font-family: $text-medium;
+	font-size: 1.125rem;
+	margin-bottom: 0.9375rem;
+}
+
+p {
+	color: $medium-grey;
+	font-size: 1rem;
+	margin: 0.6rem 0;
+	line-height: 1.5;
+}
+
+b {
+	font-weight: 600;
+}
+
+code {
+	color: $tertiary;
+	font-family: monospace, monospace;
+}
+
+/* Classes */
+.nlsg-c-text--regular {
+	font-family: $text-regular;
+}
+
+.nlsg-c-text--italic {
+	font-family: $text-italic;
+}
+
+.nlsg-c-text--medium {
+	font-family: $text-medium;
+}
+
+.nlsg-c-text--bold {
+	font-family: $text-bold;
+}

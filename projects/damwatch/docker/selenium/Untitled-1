@@ -1,0 +1,4 @@
+cd /vol1/dnkrsoln/NetBeansProjects/Sandbox; JAVA_HOME=/Library/Java/JavaVirtualMachines/jdk1.8.0_152.jdk/Contents/Home "/Applications/NetBeans/NetBeans 8.2.app/Contents/Resources/NetBeans/java/maven/bin/mvn" "-Dexec.args=-classpath %classpath com.sandbox.subscriber.ItemSubscriberDriver" -Dexec.executable=/Library/Java/JavaVirtualMachines/jdk1.8.0_152.jdk/Contents/Home/bin/java -Dexec.classpathScope=runtime org.codehaus.mojo:exec-maven-plugin:1.2.1:exec
+
+
+mvn "-Dexec.args=-classpath %classpath com.sandbox.subscriber.ItemSubscriberDriver" -Dexec.executable=/usr/lib/jvm/java-8-oracle/bin/java -Dexec.classpathScope=runtime org.codehaus.mojo:exec-maven-plugin:1.2.1:exec

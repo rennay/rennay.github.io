@@ -1,0 +1,17 @@
+/* ----------------------
+------- Divider ---------
+---------------------- */
+
+.nlsg-c-divider {
+	display: block;
+	position: relative;
+	padding: 0;
+	margin: 1.875rem auto;
+	height: 0;
+	width: 100%;
+	max-height: 0;
+	line-height: 0;
+	clear: both;
+	border: none;
+	border-top: 1px solid $medium-grey;
+}

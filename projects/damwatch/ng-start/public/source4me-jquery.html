@@ -1,0 +1,358 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Basic Rangeslider</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width = device-width, initial-scale = 1">
+    <link rel="stylesheet" href="http://fonts.googleapis.com/css?family=Open+Sans:300,400,700">
+    <link rel="stylesheet" href="https://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.css">
+    <link rel="stylesheet" href="http://demos.jquerymobile.com/1.4.2/_assets/css/jqm-demos.css">
+    <script src="https://code.jquery.com/jquery-1.11.3.min.js"></script>
+    <script src="https://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.js"></script>
+
+    <!-- Firebase App is always required and must be first -->
+    <script src="https://www.gstatic.com/firebasejs/5.3.0/firebase-app.js"></script>
+
+    <!-- Add additional services that you want to use -->
+    <!-- <script src="https://www.gstatic.com/firebasejs/5.3.0/firebase-auth.js"></script> -->
+    <!-- <script src="https://www.gstatic.com/firebasejs/5.3.0/firebase-database.js"></script> -->
+    <script src="https://www.gstatic.com/firebasejs/5.3.0/firebase-firestore.js"></script>
+    <!-- <script src="https://www.gstatic.com/firebasejs/5.3.0/firebase-messaging.js"></script> -->
+    <!-- <script src="https://www.gstatic.com/firebasejs/5.3.0/firebase-functions.js"></script> -->
+
+
+</head>
+
+<body>
+    <div data-role="page" class="jqm-demos" data-quicklinks="true" data-position="fixed">
+        <div data-demo-html="true">
+            <div data-role="tabs">
+                <div data-role="navbar" id="tabs">
+                    <ul>
+                        <li>
+                            <a href="#one" data-theme="a" data-ajax="false" class="ui-btn-active">Users</a>
+                        </li>
+                        <li>
+                            <a href="#two" data-theme="a" data-ajax="false">Deals</a>
+                        </li>
+                        <li>
+                            <a href="#three" data-theme="a" data-ajax="false">Search</a>
+                        </li>
+                        <li>
+                            <a href="#four" data-theme="a" data-ajax="false">Notifications</a>
+                        </li>
+                    </ul>
+                </div>
+                <!-- /navbar -->
+
+                <div id="one" class="ui-content">
+                    <h2 id="outputHeader">Add User...</h2>
+                    <table>
+                        <col width="100">
+                        <col width="100">
+                        <tr>
+                            <td>First Name:</td>
+                            <td>
+                                <input type="textfield" id="firstname" size="50" />
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>Last Name:</td>
+                            <td>
+                                <input type="textfield" id="lastname" size="50" />
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>User Type:</td>
+                            <td>
+                                <fieldset data-role="controlgroup" data-type="horizontal">
+                                    <input type="radio" name="userType" id="radioBuyer" value="on" checked="checked">
+                                    <label for="radioBuyer">Buyer</label>
+                                    <input type="radio" name="userType" id="radioSeller" value="off">
+                                    <label for="radioSeller">Seller</label>
+                                </fieldset>
+                            </td>
+                        </tr>
+                    </table>
+                    <table id="categoryTable" style="display: none;">
+                        <col width="100">
+                        <col width="100">
+                        <tr>
+                            <td>
+                                <label for="selectCategory">Categories:</label>
+                            </td>
+                            <td>
+                                <select name="selectCategory" id="selectCategory" multiple="multiple" data-native-menu="false">
+                                    <option>Choose options</option>
+                                    <option value="TV">TV</option>
+                                    <option value="CAR">Cars</option>
+                                    <option value="TYRE">Tyres</option>
+                                </select>
+                            </td>
+                        </tr>
+                    </table>
+                    <br/>
+                    <button id="btnAddUser">Add User</button>
+                    <br/>
+                    <label id="oneResponseText"></label>
+                    <h2 id="outputHeader">Existing User...</h2>
+                    <table>
+                        <col width="100">
+                        <col width="100">
+                        <tr>
+                            <td width="20">User:</td>
+                            <td>
+                                <select id="userUID">
+                                    <option>Choose options</option>
+                                </select>
+                            </td>
+                        </tr>
+                    </table>
+                </div>
+                <!-- /one -->
+
+                <div id="two" class="ui-content">
+                    <h2 id="outputHeader">Add Deal...</h2>
+                    <table>
+                        <tr>
+                            <td>Category:</td>
+                            <td>
+                                <select id="addCategory">
+                                    <option value="TV">TV</option>
+                                    <option value="CAR">Car</option>
+                                    <option value="TYRE">Tyres</option>
+                                </select>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <label for="description">Description:</label>
+                            </td>
+                            <td colspan='2'>
+                                <input type="text" id="description" size="50" />
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>Expiry:</td>
+                            <td>
+                                <input type="date" id="expiry" value="2018-08-21" />
+                            </td>
+                        </tr>
+                    </table>
+                    <br/>
+                    <button id="btnAddDeal">Add Deal</button>
+                    <br/>
+                    <label id="twoResponseText"></label>
+
+                    <label class="container">Advanced
+                        <input type="checkbox" id="chkAdvanced" value="Advanced">
+                        <span class="checkmark"></span>
+                    </label>
+
+                    <table style="display: none;" id="tblAdvanced">
+                        <tr>
+                            <td>Location:</td>
+                            <td>
+                                <input type="text" id="latitude" size="23" />
+                            </td>
+                            <td>
+                                <input type="text" id="longitude" size="24" />
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>Distance (km):</td>
+                            <td>
+                                <select id="distance">
+                                    <option value="5">5</option>
+                                    <option value="10">10</option>
+                                    <option value="15">15</option>
+                                    <option value="20">20</option>
+                                    <option value="25">25</option>
+                                </select>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>Size:</td>
+                            <td>
+                                <div data-role="rangeslider">
+                                    <input type="range" name="size_min" id="size_min" value="42" min="28" max="80">
+                                    <input type="range" name="size_max" id="size_max" value="65" min="28" max="80">
+                                </div>
+                            </td>
+                        </tr>
+
+                        <tr>
+                            <td>Refresh:</td>
+                            <td>
+                                <div data-role="rangeslider">
+                                    <input type="range" name="refresh_min" id="refresh_min" value="100" min="100" max="400">
+                                    <input type="range" name="refresh_max" id="refresh_max" value="400" min="100" max="400">
+                                </div>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>Guarantee:</td>
+                            <td>
+                                <div data-role="rangeslider">
+                                    <input type="range" name="guarantee_min" id="guarantee_min" value="12" min="0" max="60">
+                                    <input type="range" name="guarantee_max" id="guarantee_max" value="36" min="0" max="60">
+                                </div>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                Quality:
+                            </td>
+                            <td>
+                                <!-- </label> -->
+                                <label class="container">LCD
+                                    <input type="checkbox" id="quality1" value="LCD">
+                                    <span class="checkmark"></span>
+                                </label>
+                                <label class="container">LED
+                                    <input type="checkbox" id="quality2" value="LED">
+                                    <span class="checkmark"></span>
+                                </label>
+                                <label class="container">QLED
+                                    <input type="checkbox" id="quality3" value="QLED">
+                                    <span class="checkmark"></span>
+                                </label>
+                                <label class="container">UHD 4K
+                                    <input type="checkbox" id="quality4" value="UHD">
+                                    <span class="checkmark"></span>
+                                </label>
+                            </td>
+                        </tr>
+
+                        <tr>
+                            <td>Availability:</td>
+                            <td>
+                                <div data-role="rangeslider">
+                                    <!-- <label for="price_min">Guarantee:</label> -->
+                                    <input type="range" name="availability_min" id="availability_min" value="2" min="0" max="14">
+                                    <!-- <label for="price_max">Price:</label> -->
+                                    <input type="range" name="availability_max" id="availability_max" value="7" min="0" max="14">
+                                </div>
+                            </td>
+                        </tr>
+
+                        <tr>
+                            <td>
+                                Seller Type:
+                            </td>
+                            <td>
+                                <!-- </label> -->
+                                <label class="container">New
+                                    <input type="checkbox" id="sellerType1" value="New">
+                                    <span class="checkmark"></span>
+                                </label>
+                                <label class="container">Verified
+                                    <input type="checkbox" id="sellerType2" value="Verified">
+                                    <span class="checkmark"></span>
+                                </label>
+                                <label class="container">Online
+                                    <input type="checkbox" id="sellerType3" value="Online">
+                                    <span class="checkmark"></span>
+                                </label>
+                                <label class="container">Store
+                                    <input type="checkbox" id="sellerType4" value="Store">
+                                    <span class="checkmark"></span>
+                                </label>
+                            </td>
+                        </tr>
+                        <!-- This row is used to increase the size of the column -->
+                        <tr>
+                            <td>Comments:</td>
+                            <td>
+                                <input type="text" id="comments" size="50" />
+                            </td>
+                        </tr>
+                    </table>                    
+                </div>
+                <!-- /two -->
+
+                <div id="three" class="ui-content">
+                        <h2 id="outputHeader">Get Deals...</h2>
+                        <table>
+                            <col width="100">
+                            <col width="200">
+                            <tr>
+                                <td>Category:</td>
+                                <td>
+                                    <select id="category">
+                                        <option value="*">All</option>
+                                        <option value="TV">TV</option>
+                                        <option value="CAR">Car</option>
+                                        <option value="TYRE">Tyres</option>
+                                    </select>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>User UID:</td>
+                                <td>
+                                    Select on "Users" TAB
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>Limit:</td>
+                                <td>
+                                    <select id="limit">
+                                        <option value="5">5</option>
+                                        <option value="10">10</option>
+                                        <option value="15">15</option>
+                                        <option value="20">20</option>
+                                        <option value="25">25</option>
+                                    </select>
+                                </td>
+                            </tr>
+                        </table>
+                        <br/>
+                        <button id="btnGetDeals">Get Deals</button>
+                        <p id="demo"></p>
+                        <select id="selectDeals"></select>
+
+                        <table>
+                            <tr>
+                                <td><button id="btnGetLeaderboard">Get Leaderboard</button></td>
+                                <td><button id="btnGetLeaderboard">Add Offer</button></td>
+                                <td><button id="btnSetWeights">Set Weights</button></td>
+                            </tr>
+                        </table>
+
+                        <label id="threeResponseText"></label>
+                </div>
+                <!-- /three -->
+
+                <div id="four" class="ui-content">
+                    <h1 id="outputHeader">Get Notifications...</h1>
+                    <button id="btnGetNotifications">Get Notifications</button>
+                    <br/>
+                    <br/>
+
+                    <table border='1' id="myTable">
+                        <tr>
+                            <th>Deal</th>
+                            <th>Created</th>
+                            <th>Updated</th>
+                            <th>Changes</th>
+                        </tr>
+                    </table>
+
+                </div>
+                <!-- /four -->
+            </div>
+            <div data-role="footer" data-position="fixed" data-tap-toggle="false" class="jqm-footer">
+                <p>source4me v1.1 build 2018.08.04_020512
+                    <span class="jqm-version"></span>
+                </p>
+                <p>Copyright 2018 Verto Solutions</p>
+            </div>
+            <!-- /footer -->
+            <!-- /page -->
+            <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.22.2/moment.js"></script>
+            <script src="source4me-app.js"></script>
+
+</body>
+
+</html>

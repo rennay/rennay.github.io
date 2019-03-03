@@ -1,0 +1,7 @@
+{
+  "name": "homer-ionic-mvp",
+  "integrations": {
+    "cordova": {}
+  },
+  "type": "angular"
+}

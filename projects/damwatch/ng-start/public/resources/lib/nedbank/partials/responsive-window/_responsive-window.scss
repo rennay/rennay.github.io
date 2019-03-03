@@ -1,0 +1,50 @@
+/* -------------------------------
+------- Responsive Window --------
+------------------------------- */
+
+.nlsg-c-responsive-window {
+	width: 100%;
+	margin-top: 1rem;
+
+	&--tabs {
+		display: flex;
+	}
+
+	&--pane {
+		margin-top: 1rem;
+		width: 100%;
+	}
+
+	.nlsg-l-w-third-ns {
+		float: left;
+	}
+
+	.resizeButtons {
+		margin-bottom: 1rem;
+
+		a {
+			display: block;
+			width: 100%;
+			font-size: 0.8rem;
+			color: $medium-grey;
+			text-align: center;
+			padding: 0.6rem 0.5rem 0.2rem;
+			border-right: none;
+
+			&:hover,
+			&.active {
+				border-bottom: 1px solid $nav-border-green;
+			}
+			&:first-of-type {
+				margin: 0 1rem 0 0;
+			}
+			&:last-of-type {
+				margin-right: 0 0 0 1rem;
+			}
+		}
+		img {
+			width: 20px;
+			height: 20px;
+		}
+	}
+}

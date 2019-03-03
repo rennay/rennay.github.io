@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html ng-app="graphPlotterDemoApp">
+<head lang="en">
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Plotly Graph Plotter Directive for AngularJS - Demo</title>
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+</head>
+<body ng-controller="graphPlotterDemoCtrl">
+
+<!-- This is where we are going to put our custom directive -->
+<line-plot graph-plots=graphPlots></line-plot>
+
+  <!-- AngularJS -->
+  <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.1/angular.min.js"></script>
+  
+    <!-- Firebase -->
+    <script src="https://www.gstatic.com/firebasejs/3.6.6/firebase.js"></script>
+  
+    <!-- AngularFire -->
+    <script src="https://cdn.firebase.com/libs/angularfire/2.3.0/angularfire.min.js"></script>
+  
+<script src="https://code.jquery.com/jquery-1.11.3.min.js"></script>
+<!-- <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.4/angular.min.js"></script> -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/d3/3.5.6/d3.min.js"></script>
+<script src="https://d14fo0winaifog.cloudfront.net/plotly-basic.js"></script>
+
+<script src="graph-plotter.js"></script>
+<script src="app-plotly.js"></script>
+</body>
+</html>

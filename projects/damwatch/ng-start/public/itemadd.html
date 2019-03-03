@@ -1,0 +1,48 @@
+<html>
+        <head>
+                <script src="https://www.gstatic.com/firebasejs/4.6.2/firebase-app.js"></script>
+                <script src="https://www.gstatic.com/firebasejs/4.6.2/firebase-firestore.js"></script>
+        </head>
+        <body>
+            
+            <h1 id="outputHeader">Add Item...</h1>
+            <table>
+                <tr>
+                    <td>Name:</td>
+                    <td><input type="textfield" id="itemName" size="50"/></td>
+                </tr>
+                <tr>
+                    <td>Description:</td>
+                    <td><input type="textfield" id="itemDescription" size="50"/></td>
+                </tr>
+                <tr>
+                    <td>PnP:</td>
+                    <td><input type="textfield" id="urlPnP" size="200"/></td>
+                </tr>
+                <tr>
+                    <td>Clicks:</td>
+                    <td><input type="textfield" id="urlClicks" size="200"/></td>
+                </tr>
+                <tr>
+                    <td>Dischem:</td>
+                    <td><input type="textfield" id="urlDischem" size="200"/></td>
+                </tr>        
+                <tr>
+                    <td>Game:</td>
+                    <td><input type="textfield" id="urlGame" size="200"/></td>
+                </tr>        
+                <tr>
+                    <td>Makro:</td>
+                    <td><input type="textfield" id="urlMakro" size="200"/></td>
+                </tr>        
+                <tr>
+                    <td>Woolworths:</td>
+                    <td><input type="textfield" id="urlWoolworths" size="200"/></td>
+                </tr>        
+            </table>
+
+            <button id="saveButton">Save</button>
+            <button id="loadButton">Load</button>
+            <script src="app-itemadd.js"></script>
+        </body>
+    </html>

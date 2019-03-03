@@ -1,0 +1,80 @@
+.nlsg-c-form-element {
+    /* ------------------------
+    ------- Inputs ------------
+    ------------------------ */
+    &--multiple-wrapper {
+        display: flex;  
+        justify-content: space-between;
+        flex-wrap: wrap;
+
+        .nlsg-c-form-element__label {
+            flex: 0 1 100%;
+        }
+        &__double {
+            flex: 0 1 calc(50% - 10px);
+        }
+        &__triple {
+            flex: 0 1 calc(33.333% - 14px);
+        }
+    }
+    &__form-group {
+        margin-bottom: 1.875rem;
+    }
+    &__label {
+        color: $medium-grey;
+        font-size: 0.875rem;
+        font-weight: 200;
+        margin-bottom: 0.5em;
+    }
+    &__control {
+        width: 100%;
+        height: 3.225rem;
+        margin: 5px 0;
+        font-size: 1.25rem;
+        font-weight: 100;
+        padding: 0 10px;
+        color: $dark-grey;
+        border: 2px solid $light-grey;
+        transition: border-color 0.25s;
+        &:focus {
+            border-color: $primary;
+            outline: none;
+        }
+        &::-webkit-input-placeholder {
+            color: $light-grey;
+        }
+        &.error {
+            border-color: $warning-red;
+        }
+        &:disabled {
+            border-color: $light-grey-disabled;
+            color: #dedede;
+            cursor: not-allowed;
+        }
+        @media (min-width: 400px) and (max-width: 767px) {
+            height: 3.75rem;
+        }
+        @media (min-width: 768px) {
+            height: 3.125rem;
+            font-size: 1rem;
+        }
+    }
+    &__help {
+        font-family: 'FFMarkWebProRegular', Helvetica, sans-serif;
+        font-size: 1rem;
+        margin-bottom: 1rem;
+        margin-top: 0.5rem;
+        color: $light-grey;
+        letter-spacing: 0.2px;
+        &.error {
+            color: $warning-red;
+        }
+    }
+    &:not(#search) {
+        float: none;
+        margin: 1rem auto 0;
+        &.left-align {
+            margin: 0;
+        }
+    }
+}

@@ -1,0 +1,165 @@
+/* ------------------------
+------- Buttons -----------
+------------------------ */
+
+.nlsg-c-two-buttons,
+.nlsg-c-three-buttons {
+	display: -webkit-box;
+	display: -moz-box;
+	display: -ms-flexbox;
+	display: -webkit-flex;
+	display: flex;
+	justify-content: space-between;
+}
+
+.nlsg-c-button {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	background: $secondary;
+	width: 100%;
+	max-width: 25rem;
+	min-height: 2.5rem;
+	height: 3.25rem;
+	margin: 1.875rem 0 3.25rem;
+	border-radius: 0.25rem;
+	border: 2px solid $secondary;	
+
+	font-family: $text-medium;
+	font-size: 1rem;
+	text-align: center;
+	color: $white;
+	cursor: pointer;
+
+	-webkit-transition-duration: 0.2s;
+	transition-duration: 0.2s;
+	-webkit-transition-property: color, background, border;
+	transition-property: color, background, border;
+
+	@media (min-width: 400px) and (max-width: 767px) {
+	   height: 3.75rem;
+	   font-size: 1.125rem;
+	}
+	@media (min-width: 768px) {
+	    height: 3.125rem;
+	    font-size: 1rem;
+	}
+
+	&:focus {
+		outline: none;
+	}
+	&:hover {
+		background: #007f33;
+		border: 2px solid #007f33;
+		text-decoration: none;
+	}
+	&:disabled,
+	&[disabled] {
+		background: #4fb776;
+		border: 2px solid #4fb776;
+		cursor: not-allowed;
+	}
+
+	/* Small */
+	&--small {
+		height: 2.5rem;
+	}
+
+	/* Large */
+	&--large {
+		height: 3.125rem;
+		font-size: 1.125rem;
+	}
+
+	/* Secondary */
+	&--secondary {
+		background: $white;
+		color: $secondary;
+
+		&:hover {
+			color: $white;
+			background: $secondary;
+			border: 2px solid $secondary;
+		}
+		&:disabled,
+		&[disabled] {
+			background: $white;
+			border: 2px solid $light-grey-disabled;
+			color: $light-grey-disabled;
+			cursor: not-allowed;
+		}
+	}
+
+	/* Ghost */
+	&--ghost {
+		background: $white;
+		color: $secondary;
+		border: 2px solid $white;
+
+		&:hover {
+			background: $very-light-grey;
+			color: $secondary;
+			border: 2px solid $very-light-grey;
+		}
+		&:disabled,
+		&[disabled] {
+			background: $white;
+			border: 2px solid transparent;
+			color: $very-light-grey;
+			cursor: not-allowed;
+		}
+	}
+
+	/* Spinner */
+	&--spinner  {
+		display: flex;
+		justify-content: center;
+		align-items: center;
+
+		.nlsg-c-spinner-wrapper__spinner {
+			width: 1.5rem;
+			height: 1.5rem;
+
+			circle {
+				stroke-width: 6;
+			}
+		}
+
+		&.nlsg-c-button--secondary {
+			background: $white;
+			color: $secondary;	
+
+			&:hover {
+				background: $white;
+				color: $secondary;
+			}	
+		}
+
+		span {
+			padding-left: 1rem;
+		}
+	}
+
+	.ie {
+		display: none;
+	}	
+
+	@media screen and (-ms-high-contrast: active), (-ms-high-contrast: none) {
+		.ie {
+			display: block;
+		}		
+	}
+
+	@supports (-ms-ime-align: auto) {
+		.ie {
+			display: block;
+		}		
+	}
+
+	.nlsg-c-two-buttons & {
+		width: 47%;
+	}
+	.nlsg-c-three-buttons & {
+		width: 30%;
+	}
+}

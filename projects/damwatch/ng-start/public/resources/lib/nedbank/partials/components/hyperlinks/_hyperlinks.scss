@@ -1,0 +1,27 @@
+/* ------------------------
+------- Hyperlinks --------
+------------------------ */
+
+a {
+	color: $secondary;
+	text-decoration: none;
+
+	&:hover,
+	&.hover {
+		color: $primary;
+		text-decoration: underline;
+		font-family: $text-medium;
+	}
+	&:active,
+	&.active {
+		color: $tertiary;
+	}
+	&:visited,
+	&.visited {
+		color: $primary;
+		text-decoration: none;
+	}
+	&.nlsg-c-button {
+		padding: 0.8rem 0;
+	}
+}

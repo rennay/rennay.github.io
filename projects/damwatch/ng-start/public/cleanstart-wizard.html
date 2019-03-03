@@ -1,0 +1,198 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Sunday 5 August 2018 - Clean Start</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width = device-width, initial-scale = 1">
+    <link rel="stylesheet" href="http://fonts.googleapis.com/css?family=Open+Sans:300,400,700">
+    <link rel="stylesheet" href="https://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.css">
+    <link rel="stylesheet" href="http://demos.jquerymobile.com/1.4.2/_assets/css/jqm-demos.css">
+    <script src="https://code.jquery.com/jquery-1.11.3.min.js"></script>
+    <script src="https://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.js"></script>
+
+    <!-- Firebase App is always required and must be first -->
+    <script src="https://www.gstatic.com/firebasejs/5.3.0/firebase-app.js"></script>
+
+    <!-- Add additional services that you want to use -->
+    <!-- <script src="https://www.gstatic.com/firebasejs/5.3.0/firebase-auth.js"></script> -->
+    <!-- <script src="https://www.gstatic.com/firebasejs/5.3.0/firebase-database.js"></script> -->
+    <script src="https://www.gstatic.com/firebasejs/5.3.0/firebase-firestore.js"></script>
+    <!-- <script src="https://www.gstatic.com/firebasejs/5.3.0/firebase-messaging.js"></script> -->
+    <!-- <script src="https://www.gstatic.com/firebasejs/5.3.0/firebase-functions.js"></script> -->
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.22.2/moment.js"></script>
+</head>
+
+<body>
+
+    <!-- Start of first page -->
+    <div data-role="page" id="_pagemanufacturer">
+
+        <div role="main" class="ui-content">
+            <h2>Select Manufacturer</h2>
+
+            <div class="ui-field-contain">
+                <select name="_selectManufacturer" id="_selectManufacturer">
+                    <option>Choose Manufacturer</option>
+                    <option value="Michelin">Michelin</option>
+                    <option value="Bridgestone">Bridgestone</option>
+                    <option value="Dunlop">Dunlop</option>
+                    <option value="Contintenal">Continental</option>
+                </select>
+            </div>
+        </div>
+        <!-- /content -->
+
+    </div>
+    <!-- /page -->
+
+    <!-- Start of second page -->
+    <div data-role="page" id="_pagewidth">
+        <div role="main" class="ui-content">
+            <h2>Select Width</h2>
+            <table>
+                <tr>
+                    <td>
+                        <img src="tyre_width.png" alt="Tyre Width">
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <h3>A – Width (mm)</h3>
+                        The width of the tire, from sidewall to sidewall, in millimetres. A 195 is 195 millimetres wide.
+                    </td>
+                </tr>
+            </table>
+            <br/>
+            <select id="_selectWidths">
+                    <option>Choose Width</option>
+            </select>
+            <br/>
+            <tr/>
+            <table width="100%">
+                <tr>
+                    <td style="text-align: left;">
+                        <a href="#_pagemanufacturer">Back to Manufacturer</a>
+                    </td>
+                    <!-- <td style="text-align: right;">
+                        <a href="#_pageprofile">Next to Profile</a>
+                    </td> -->
+                </tr>
+            </table>
+        </div>
+        <!-- /content -->
+    </div>
+    <!-- /page -->
+
+    <!-- Start of third page -->
+    <div data-role="page" id="_pageprofile">
+            <div role="main2" class="ui-content">
+                    <h2>Select Profile</h2>
+                    <table>
+                        <tr>
+                            <td><img src="tyre_profile.png" alt="Tyre Width"></td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <h3>B – The Profile / Aspect Ratio (%)</h3>
+                                This is the height of the tyre’s sidewall expressed as a percentage of the tyre’s section width (A).
+                            </td>
+                        </tr>
+                    </table>
+                    <br/>
+                    <select id="_selectProfiles">
+                            <option>Choose Profile</option>
+                    </select>
+                    <br/>
+                    <table width="100%">
+                        <tr>
+                            <td style="text-align: left;"><a href="#_pagewidth">Back to Width</a></td>
+                            <!-- <td style="text-align: right;"><a href="#_pagerimsize">Next to Rim Size</a></td> -->
+                        </tr>
+                    </table>
+            </div>
+            <!-- /content -->    
+    </div>
+    <!-- /page -->
+
+    <!-- Start of fourth page -->
+    <div data-role="page" id="_pagediameter">
+            <div role="main2" class="ui-content">
+                    <h2>Select Rim Size</h2>
+                    <table>
+                        <tr>
+                            <td><img src="tyre_rimsize.png" alt="Tyre Width"></td>
+                        </tr>
+                        <tr>    
+                            <td>
+                                <h3>C – Rim Size (Inches)</h3>
+                                The tire’s inner diameter, which matches the outer diameter of your car’s wheels.
+                            </td>
+                        </tr>
+                    </table>
+                    <br/>
+                    <select id="_selectDiameters">
+                            <option>Choose Rim Size</option>
+                    </select>        
+                    <br/>
+                    <table width="100%">
+                        <tr>
+                            <td style="text-align: left;"><a href="#_pageprofile">Back to Profile</a></td>
+
+                        </tr>
+                    </table>
+            </div>
+            <!-- /content -->    
+    </div>
+    <!-- /page -->    
+</body>
+<script src="cleanstart-app.js"></script>
+<script>
+    $("#_selectManufacturer").bind("change", function (event, ui) {
+        console.log("-- change...");
+        var url = "#_pagewidth";
+        if (url) { // require a URL
+            window.location = url; // redirect
+        }
+
+        populateWidths();
+        return false;
+    });
+    $("#_selectWidths").bind("change", function (event, ui) {
+        console.log("-- _selectWidths change...");
+        var _width = $(this).val();
+        console.log(`width: ${_width}`);
+        populateProfiles(_width);
+
+        var url = "#_pageprofile";
+        if (url) { // require a URL
+            window.location = url; // redirect
+        }
+    });
+    $("#_selectProfiles").bind("change", function (event, ui) {
+        console.log("-- _selectProfiles change...");
+        var _width = $('#_selectWidths').val();
+        var _profile = $(this).val();
+        console.log(`width: ${_width} profile: ${_profile}`);
+        populateDiameters(_width, _profile);
+
+        var url = "#_pagediameter";
+        if (url) { // require a URL
+            window.location = url; // redirect
+        }
+    });
+
+    $("#_selectDiameters").bind("change", function (event, ui) {
+        console.log("-- _selectProfiles change...");
+        var _manufactuer = $('#_selectManufacturer').val();
+        var _width = $('#_selectWidths').val();
+        var _profile = $('#_selectProfiles').val();
+        var _diameter = $(this).val();
+        console.log(`manufacturer: ${_manufactuer} width: ${_width} profile: ${_profile} diameter: ${_diameter}`);
+    });
+
+
+</script>
+
+</html>

@@ -1,0 +1,281 @@
+/* ------------------------
+------- Spinner -------
+------------------------ */
+
+$offset: 260;
+$duration: 1.4s;
+
+.nlsg-c-spinner-wrapper {
+	position: relative;
+	height: 100vh;
+
+	display: flex;
+	align-items: center;
+	justify-content: center;
+
+	&__lock-icon {
+		position: absolute;
+		height: 2rem;
+		padding: 1rem;
+		stroke: none;
+		fill: none;
+		fill-rule: evenodd;
+		stroke-width: 2;
+
+		&--large {
+			height: 4rem;
+
+			path {
+				stroke-width: 1.5;
+			}
+		}
+		&--green {
+			stroke: $secondary;			
+		}
+		&--white {
+			stroke: $white;
+		}
+	}
+
+	&__spinner {
+		width: 4.75rem;
+		height: 4.75rem;
+
+		animation: rotate $duration linear infinite;
+		-webkit-animation: rotate $duration linear infinite;
+		-moz-animation: rotate $duration linear infinite;
+		-o-animation: rotate $duration linear infinite;
+		stroke-width: 2;
+
+		&--large {
+			width: 9.75rem;
+			height: 9.75rem;
+
+			circle {
+				stroke-width: 1.5;
+			}
+		}
+		&__path {
+			stroke-dasharray: $offset;
+			stroke-dashoffset: 0;
+			fill: none; 
+			stroke-linecap: round;
+
+			-webkit-transform-origin: 2.375rem 2.375rem;	
+			-moz-transform-origin: 2.375rem 2.375rem;	
+			-o-transform-origin: 2.375rem 2.375rem;	
+			transform-origin: 2.375rem 2.375rem;	
+
+			&--green {
+				animation:
+				dash $duration ease-in-out infinite, 
+				green ($duration) ease-in-out infinite;
+				-webkit-animation:
+				 dash $duration ease-in-out infinite, 
+				green ($duration) ease-in-out infinite;
+				-moz-animation:
+				 dash $duration ease-in-out infinite, 
+				green ($duration) ease-in-out infinite;
+				-o-animation:
+				 dash $duration ease-in-out infinite, 
+				green ($duration) ease-in-out infinite;
+			}
+
+			&--white {
+				animation:
+				dash $duration ease-in-out infinite, 
+				white ($duration) ease-in-out infinite;
+				-webkit-animation:
+				 dash $duration ease-in-out infinite, 
+				white ($duration) ease-in-out infinite;
+				-moz-animation:
+				 dash $duration ease-in-out infinite, 
+				white ($duration) ease-in-out infinite;
+				-o-animation:
+				 dash $duration ease-in-out infinite, 
+				white ($duration) ease-in-out infinite;
+			}
+		}
+	}
+
+	@-webkit-keyframes green {
+		0% { stroke: $secondary; }
+		100% { stroke: $secondary; }
+	}
+	@-moz-keyframes green {
+		0% { stroke: $secondary; }
+		100% { stroke: $secondary; }
+	}
+	@-o-keyframes green {
+		0% { stroke: $secondary; }
+		100% { stroke: $secondary; }
+	}
+	@keyframes green {
+		0% { stroke: $secondary; }
+		100% { stroke: $secondary; }
+	}
+
+	@-webkit-keyframes white {
+		0% { stroke: $white; }
+		100% { stroke: $white; }
+	}
+	@-moz-keyframes white {
+		0% { stroke: $white; }
+		100% { stroke: $white; }
+	}
+	@-o-keyframes white {
+		0% { stroke: $white; }
+		100% { stroke: $white; }
+	}
+	@keyframes white {
+		0% { stroke: $white; }
+		100% { stroke: $white; }
+	}
+
+	@-webkit-keyframes rotate{
+		0% { transform: rotate(0deg); }
+		100% { transform: rotate(270deg); }
+	}
+	@-moz-keyframes rotate{
+		0% { transform: rotate(0deg); }
+		100% { transform: rotate(270deg); }
+	}
+	@-o-keyframes rotate{
+		0% { transform: rotate(0deg); }
+		100% { transform: rotate(270deg); }
+	}
+	@keyframes rotate {
+		0% { transform: rotate(0deg); }
+		100% { transform: rotate(270deg); }
+	}
+
+	@-webkit-keyframes dash{
+		0% { stroke-dashoffset: $offset; }
+		50% {
+			stroke-dashoffset: $offset/4;
+			transform:rotate(135deg);
+		}
+		100% {
+			stroke-dashoffset: $offset;
+			transform:rotate(450deg);
+		}
+	}
+	@-moz-keyframes dash{
+		0% { stroke-dashoffset: $offset; }
+		50% {
+			stroke-dashoffset: $offset/4;
+			transform:rotate(135deg);
+		}
+		100% {
+			stroke-dashoffset: $offset;
+			transform:rotate(450deg);
+		}
+	}
+	@-o-keyframes dash{
+		0% { stroke-dashoffset: $offset; }
+		50% {
+			stroke-dashoffset: $offset/4;
+			transform:rotate(135deg);
+		}
+		100% {
+			stroke-dashoffset: $offset;
+			transform:rotate(450deg);
+		}
+	}
+	@keyframes dash {
+		0% { stroke-dashoffset: $offset; }
+		50% {
+			stroke-dashoffset: $offset/4;
+			transform:rotate(135deg);
+		}
+		100% {
+			stroke-dashoffset: $offset;
+			transform:rotate(450deg);
+		}
+	}
+}
+
+.ie {
+	display: none;
+}
+
+/* ------------------------
+------- ie overrides + edge -------
+------------------------ */
+@media screen and (-ms-high-contrast: active), (-ms-high-contrast: none) {
+
+	.ie {
+		display: block;
+		text-align: center;
+		position: relative;
+	}
+
+	.nlsg-c-spinner-wrapper__spinner {
+		display: none;
+	}
+
+	.nlsg-c-spinner-wrapper {
+		height: auto !important;
+	}
+
+	.hidden-ie {
+		display: none;
+	}
+
+	.ie-lock-icon {
+		position: absolute;
+		left: -16px;
+		top: 30px;
+		height: 2rem;
+		padding: 1rem;
+		stroke: none;
+		fill: none;
+		fill-rule: evenodd;
+		stroke-width: 2;
+
+		&__large {
+			height: 4rem!important;
+			top: 45px;
+		}
+	}
+ }
+
+ @supports (-ms-ime-align: auto) {
+ 	.ie {
+ 		display: block;
+ 		text-align: center;
+ 		position: relative;
+ 	}
+
+ 	.nlsg-c-spinner-wrapper__spinner {
+ 		display: none;
+ 	}
+
+ 	.nlsg-c-spinner-wrapper {
+ 		height: auto !important;
+ 	}
+
+ 	.hidden-ie {
+ 		display: none;
+ 	}
+
+ 	.ie-lock-icon {
+ 		position: absolute;
+ 		left: 50%;
+ 		margin-left: -29px;
+ 		top: 30px;
+ 		height: 2rem;
+ 		padding: 1rem;
+ 		stroke: none;
+ 		fill: none;
+ 		fill-rule: evenodd;
+ 		stroke-width: 2;
+
+ 		&__large {
+ 			height: 4rem!important;
+ 			top: 45px;
+ 			left: 50%;
+ 			margin-left: -40px;
+ 		}
+ 	}
+ }

@@ -1,0 +1,114 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-menu-button></ion-menu-button>
+    </ion-buttons>
+    <ion-title>
+      Detail - {{ _title }}
+    </ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content padding>
+  <ion-card>
+    <ion-slides pager="true" mode='ios'>
+      <ion-slide>
+        <ion-img [src]="_result.imagePath"></ion-img>
+      </ion-slide>
+
+      <!-- <ion-slide>
+              <ion-img [src]="_result.filename" style="width: 100%; height: 100%;"></ion-img>
+            </ion-slide> -->
+    </ion-slides>
+
+    <ion-card-header>
+      <ion-card-title>{{ _result.start_time.seconds * 1000 | date:'MMM d, y, HH:mm:ss'}}</ion-card-title>
+    </ion-card-header>
+    <ion-card-content>
+      <ion-grid>
+        <ion-row>
+          <ion-col>
+            <ion-item>
+              <ion-label position="floating">API</ion-label>
+              <ion-select [(ngModel)]="_result.API" disabled=true>
+                <ion-select-option value="accounts">Accounts</ion-select-option>
+                <ion-select-option value="customers">Customers</ion-select-option>
+                <ion-select-option value="payment">Payments</ion-select-option>
+                <ion-select-option value="rewards">Rewards</ion-select-option>
+              </ion-select>
+            </ion-item>
+          </ion-col>
+        </ion-row>
+        <ion-row>
+          <ion-col>
+            <ion-item>
+              <ion-label position="floating">Environment</ion-label>
+              <ion-select [(ngModel)]="_result.env" disabled=true>
+                <ion-select-option value="live">Live</ion-select-option>
+                <ion-select-option value="sandbox">Sandbox</ion-select-option>
+              </ion-select>
+            </ion-item>
+          </ion-col>
+        </ion-row>
+        <ion-row>
+          <ion-col>
+            <ion-item>
+              <ion-label position="floating">Light Token</ion-label>
+              <ion-input [value]="_result.light_token" disabled=true></ion-input>
+            </ion-item>
+          </ion-col>
+        </ion-row>
+        <ion-row>
+          <ion-col>
+            <ion-item>
+              <ion-label position="floating">Intent ID</ion-label>
+              <ion-input [value]="_result.intent_id" disabled=true></ion-input>
+            </ion-item>
+          </ion-col>
+        </ion-row>
+        <ion-row>
+          <ion-col>
+            <ion-item>
+              <ion-label position="floating">Authorisation Code</ion-label>
+              <ion-input [value]="_result.auth_code" disabled=true></ion-input>
+            </ion-item>
+          </ion-col>
+        </ion-row>
+        <ion-row>
+          <ion-col>
+            <ion-item>
+              <ion-label position="floating">Heavy Token</ion-label>
+              <ion-input [value]="_result.heavy_token" disabled=true></ion-input>
+            </ion-item>
+          </ion-col>
+        </ion-row>
+        <ion-row>
+          <ion-col>
+            <ion-item>
+              <ion-label position="floating">Data</ion-label>
+              <ion-input [value]="_result.api_data" disabled=true></ion-input>
+            </ion-item>
+          </ion-col>
+        </ion-row>
+        <ion-row>
+          <ion-col>
+            <ion-item>
+              <ion-button shape="round" color="primary" fill="outline" (click)="openUrl(_result.filename)">Screenshot</ion-button>
+            </ion-item>
+          </ion-col>
+        </ion-row>
+      </ion-grid>
+    </ion-card-content>
+  </ion-card>
+
+  <!-- <ion-button shape="round" color="primary" fill="outline" (click)="playSound(_result.soundLink)">Play</ion-button> -->
+  <br />
+
+  <ion-list>
+    <ion-item>
+      <ion-label>Sound Check</ion-label>
+      <ion-checkbox [(ngModel)]="_soundCheck"></ion-checkbox>
+    </ion-item>
+  </ion-list>
+
+</ion-content>

@@ -1,0 +1,148 @@
+.nlsg-c-form-element {
+	/* --------------------
+	------- Select --------
+	-------------------- */
+
+	&__show-mobile-select {
+		display: inline-block;
+		width: 100%;
+
+		@media (min-width: 468px) {
+			display: none;
+		}
+	}
+
+	/* Selects not be be shown on screen sizes smaller than 768px */
+	&__select-menu {
+		display: none;
+
+		@media (min-width: 468px) {
+			display: block;
+			width: 100%;
+			position: relative;
+			cursor: pointer;
+
+			&__select {
+				border: 2px solid $light-grey;
+				border-radius: 0;
+				width: 100%;
+				height: 3.75rem;
+				padding: 0.6rem 0.8rem;
+				font-size: 1rem;
+				font-weight: 300;
+				color: $light-grey;
+				background: $white;
+				-webkit-appearance: none;
+				-moz-appearance: none;
+				appearance: none;
+				cursor: pointer;
+				outline: none;
+				transition: border-color 1s;
+				-webkit-transition: border-color 1s;
+
+				&:hover {
+					border-color: $primary;
+				}
+
+				option {
+					color: $light-grey;
+				}
+
+				&--selected {
+					border-color: $tertiary;
+					color: $dark-grey;
+				}
+
+				&--error {
+					border-color: $warning-red;
+					color: $dark-grey;
+				}
+
+				&--disable {
+					border-color: $light-grey-disabled;
+					color: $light-grey-disabled;
+					cursor: not-allowed;
+
+					&:hover {
+						border-color: $light-grey;
+					}
+				}
+			}
+
+			select {
+				height: 3.125rem;
+				margin: 5px 0;
+			}
+
+			&__desktop_list {
+				border: 2px solid $base-green;
+				margin: 5px 0;
+			}
+
+			&__desktop_list_item {
+				padding: 1rem 0.8rem;
+				height: 3rem;
+				color: $light-grey;
+				font-size: 1rem !important;
+				font-weight: 300;
+
+				&:first-of-type {
+					cursor: not-allowed;
+
+					&:hover {
+						background-color: $very-light-grey;
+						color: $light-grey;
+					}
+				}
+
+				&:hover {
+					background-color: $very-light-grey;
+					color: $dark-grey;
+				}
+			}
+
+			.js-dropdown-select {
+				display: none;
+				margin: 12px 0;
+			}
+
+			.js-default-value {
+				display: none;
+			}
+
+			&.view-arrow:after {
+				content: "";
+				background: url(../img/down.svg) no-repeat center center;
+				width: 42px;
+				height: 42px;
+				top: 30px;
+				right: 4px;
+				position: absolute;
+			}
+
+			&.view-arrow.up-arrow:after {
+				content: "";
+				background: url(../img/up.svg) no-repeat center center;
+				width: 42px;
+				height: 42px;
+				top: 30px;
+				right: 4px;
+				position: absolute;
+			}
+
+			&.view-arrow-disabled:after {
+				content: "";
+				background: url(../img/down.svg) no-repeat center center;
+				width: 42px;
+				height: 42px;
+				top: 30px;
+				right: 4px;
+				position: absolute;
+			}
+		}
+	}
+}
+
+select::-ms-expand {
+    display: none;
+}

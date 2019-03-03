@@ -1,0 +1,185 @@
+<html>
+
+<head>
+    <!-- Firebase App is always required and must be first -->
+    <script src="https://www.gstatic.com/firebasejs/5.3.0/firebase-app.js"></script>
+
+    <!-- Add additional services that you want to use -->
+    <!-- <script src="https://www.gstatic.com/firebasejs/5.3.0/firebase-auth.js"></script> -->
+    <!-- <script src="https://www.gstatic.com/firebasejs/5.3.0/firebase-database.js"></script> -->
+    <script src="https://www.gstatic.com/firebasejs/5.3.0/firebase-firestore.js"></script>
+    <!-- <script src="https://www.gstatic.com/firebasejs/5.3.0/firebase-messaging.js"></script> -->
+    <!-- <script src="https://www.gstatic.com/firebasejs/5.3.0/firebase-functions.js"></script> -->
+
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.css">
+    <script src="https://code.jquery.com/jquery-1.11.3.min.js"></script>
+    <script src="https://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.js"></script>
+</head>
+
+<body>
+
+    <h1 id="outputHeader">Add Deal...</h1>
+    <table>
+        <tr>
+            <td>Category:</td>
+            <td>
+                <select id="category">
+                    <option value="TV">TV</option>
+                    <option value="CAR">Car</option>
+                    <option value="TYRE">Tyres</option>
+                    <option value="Appliance">Appliance</option>
+                </select>
+            </td>
+        </tr>
+        <tr>
+            <td>Description:</td>
+            <td>
+                <input type="textfield" id="description" size="50" />
+            </td>
+        </tr>
+        <tr>
+            <td>Location:</td>
+            <td>
+                <input type="textfield" id="latitude" size="23" />
+                <input type="textfield" id="longitude" size="24" />
+            </td>
+        </tr>
+        <tr>
+            <td>Expiry:</td>
+            <td>
+                <input type="date" id="expiry" value="2018-08-21" />
+            </td>
+        </tr>
+        <tr>
+            <td>User UID (Buyer):</td>
+            <td>
+                <select id="userUID" />
+            </td>
+        </tr>
+    </table>
+    <br/>
+    <table>
+        <tr>
+            <td>Distance (km):</td>
+            <td>
+                <select id="distance">
+                    <option value="5">5</option>
+                    <option value="10">10</option>
+                    <option value="15">15</option>
+                    <option value="20">20</option>
+                    <option value="25">25</option>
+                </select>
+            </td>
+        </tr>
+        <tr>
+            <td>Size:</td>
+            <td>
+                <div data-role="rangeslider">
+                    <input type="range" name="size_min" id="size_min" value="42" min="28" max="80">
+                    <input type="range" name="size_max" id="size_max" value="65" min="28" max="80">
+                </div>
+            </td>
+        </tr>
+
+        <tr>
+            <td>Refresh:</td>
+            <td>
+                <div data-role="rangeslider">
+                    <input type="range" name="refresh_min" id="refresh_min" value="100" min="100" max="400">
+                    <input type="range" name="refresh_max" id="refresh_max" value="400" min="100" max="400">
+                </div>
+            </td>
+        </tr>
+        <tr>
+            <td>Guarantee:</td>
+            <td>
+                <div data-role="rangeslider">
+                    <input type="range" name="guarantee_min" id="guarantee_min" value="12" min="0" max="60">
+                    <input type="range" name="guarantee_max" id="guarantee_max" value="36" min="0" max="60">
+                </div>
+            </td>
+        </tr>
+        <tr>
+            <td>
+                Quality:
+            </td>
+            <td>
+                <!-- </label> -->
+                <label class="container">LCD
+                    <input type="checkbox" id="quality1" value="LCD">
+                    <span class="checkmark"></span>
+                </label>
+                <label class="container">LED
+                    <input type="checkbox" id="quality2" value="LED">
+                    <span class="checkmark"></span>
+                </label>
+                <label class="container">QLED
+                    <input type="checkbox" id="quality3" value="QLED">
+                    <span class="checkmark"></span>
+                </label>
+                <label class="container">UHD 4K
+                    <input type="checkbox" id="quality4" value="UHD">
+                    <span class="checkmark"></span>
+                </label>
+            </td>
+        </tr>
+
+        <tr>
+            <td>Availability:</td>
+            <td>
+                <div data-role="rangeslider">
+                    <!-- <label for="price_min">Guarantee:</label> -->
+                    <input type="range" name="availability_min" id="availabiity_min" value="2" min="0" max="14">
+                    <!-- <label for="price_max">Price:</label> -->
+                    <input type="range" name="availabiity_max" id="availabiity_max" value="7" min="0" max="14">
+                </div>
+            </td>
+        </tr>
+
+        <tr>
+            <td>
+                Seller Type:
+            </td>
+            <td>
+                <!-- </label> -->
+                <label class="container">New
+                    <input type="checkbox" id="sellerType1" value="New">
+                    <span class="checkmark"></span>
+                </label>
+                <label class="container">Verified
+                    <input type="checkbox" id="sellerType2" value="Verified">
+                    <span class="checkmark"></span>
+                </label>
+                <label class="container">Online
+                    <input type="checkbox" id="sellerType3" value="Online">
+                    <span class="checkmark"></span>
+                </label>
+                <label class="container">Store
+                    <input type="checkbox" id="sellerType4" value="Store">
+                    <span class="checkmark"></span>
+                </label>
+            </td>
+        </tr>
+
+        <tr>
+            <td>Availability (Days):</td>
+            <td>
+                <input type="textfield" id="availability_min" size="23" value="1" />
+                <input type="textfield" id="availability_max" size="23" value="14" />
+            </td>
+        </tr>
+
+    </table>
+    <br/>
+    <button id="btnAddDeal">Add Deal</button>
+    <br/>
+    <!-- <br/>
+    <textarea rows="10" cols="80" id="responseText">
+    ...
+    </textarea> -->
+
+    <script src="source4me-app.js"></script>
+</body>
+
+</html>

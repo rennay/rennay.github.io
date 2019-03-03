@@ -1,0 +1,68 @@
+/* ------------------------
+------- Variables --------
+------------------------ */
+
+/* Media Queries */
+
+$breakpoint-not-small: 'screen and (min-width: 30rem)' !default;
+$breakpoint-medium: 'screen and (min-width: 30rem) and (max-width: 60rem)' !default;
+$breakpoint-large: 'screen and (min-width: 60rem)' !default;
+$breakpoint-extra-large: 'screen and (min-width: 79.75rem)' !default;
+
+/* Typography */
+
+$text-regular: 'FFMarkWebProRegular', Helvetica, sans-serif;
+$text-medium: 'FFMarkWebProMedium', Helvetica, sans-serif;
+$text-light: 'FFMarkWebProLight', Helvetica, sans-serif;
+$text-thin: 'FFMarkWebProThin', Helvetica, sans-serif;
+$text-bold: 'FFMarkWebProBold', Helvetica, sans-serif;
+$text-italic: 'FFMarkWebProItalic', Helvetica, sans-serif;
+
+/* Fractions */
+
+$one-third: 33.33333%;
+$one-fifth: 20%;
+
+/* Colours */
+
+/* Brand */
+
+$primary: #006341;
+$secondary: #009639;
+$tertiary: #78be20;
+
+/* Accent */
+
+$accent-blue: #00b388;
+$accent-lime: #cedc00;
+
+/* Warning/ Error */
+
+$warning-red: #d22630;
+$deep-red: #AA2930;
+$warning-orange: #f2a900;
+
+/* Greys */
+
+$dark-grey: #333;
+$medium-grey: #666;
+$light-grey: #bbb;
+$light-grey-disabled: #dedede;
+$very-light-grey: #eee;
+$almost-white: #f9f9f9;
+
+/* Solid */
+
+$white: #fff;
+$black: #000;
+
+/* Tranparency */
+
+$alpha: 0.1;
+$black-a: darken($black, $alpha);
+
+/* Extra */
+
+$highlight: #8bd2a3;
+$nav-border-green: #009639;
+$base-green: #006341;

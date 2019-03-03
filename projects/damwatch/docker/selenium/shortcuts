@@ -1,0 +1,23 @@
+wget https://www.dropbox.com/s/goezhwn5ffyhnqr/JavaSelenium.zip
+
+mvn "-Dexec.args=-classpath %classpath com.rennay.VodacomExample" -Dexec.executable=$JAVA_HOME/bin/java -Dexec.classpathScope=runtime org.codehaus.mojo:exec-maven-plugin:1.2.1:exec
+
+mvn "-Dexec.args=-classpath %classpath com.rennay.MakroExample" -Dexec.executable=$JAVA_HOME/bin/java -Dexec.classpathScope=runtime org.codehaus.mojo:exec-maven-plugin:1.2.1:exec
+
+mvn "-Dexec.args=-classpath %classpath com.rennay.WoolworthsExample" -Dexec.executable=$JAVA_HOME/bin/java -Dexec.classpathScope=runtime org.codehaus.mojo:exec-maven-plugin:1.2.1:exec
+
+mvn "-Dexec.args=-classpath %classpath com.rennay.PnPExample" -Dexec.executable=$JAVA_HOME/bin/java -Dexec.classpathScope=runtime org.codehaus.mojo:exec-maven-plugin:1.2.1:exec
+
+docker run -it --privileged local/chrome:0.2.2
+
+
+https://www.dropbox.com/s/uznfuojbwqpcffp/GooglePubSub.zip?dl=0
+
+https://www.dropbox.com/s/oqwmid0ns0wukx2/MyPubSub-ddbe3dc5b784.json?dl=0
+
+mvn "-Dexec.args=-classpath %classpath com.rennay.googlepubsub.SubscriberFirebaseExample" -Dexec.executable=/usr/lib/jvm/java-8-oracle/bin/java -Dexec.classpathScope=runtime org.codehaus.mojo:exec-maven-plugin:1.2.1:exec
+
+mvn "-Dexec.args=-classpath %classpath com.rennay.googlepubsub.SubscriberExample" -Dexec.executable=/usr/lib/jvm/java-8-oracle/bin/java -Dexec.classpathScope=runtime org.codehaus.mojo:exec-maven-plugin:1.2.1:exec
+
+mvn "-Dexec.args=-classpath %classpath com.rennay.subscriber.ItemSubscriberDriver" -Dexec.executable=/usr/lib/jvm/java-8-oracle/bin/java -Dexec.classpathScope=runtime org.codehaus.mojo:exec-maven-plugin:1.2.1:exec
+

@@ -1,0 +1,77 @@
+.nlsg-c-form-element {
+    /* --------------------------
+    ------- Switch Field --------
+    -------------------------- */
+    &__switch-field {
+        margin-bottom: 1em;
+        margin-top: 1em;
+        display: -webkit-box;
+        display: -moz-box;
+        display: -ms-flexbox;
+        display: -webkit-flex;
+        display: flex;
+        -webkit-flex-flow: row wrap;
+        justify-content: space-around;
+        &--unselected {
+            label {
+                &:hover {
+                    background-color: $tertiary;
+                    color: $white;
+                }
+            }
+        }
+        &__switch-label {
+            display: inline-block;
+            width: calc(50% - 2px);
+            background-color: $white;
+            color: $tertiary;
+            height: 50px;
+            line-height: 50px;
+            text-align: center;
+            border: 2px solid $tertiary;
+            transition: background-color 0.1s ease-in-out;
+            &:hover {
+                cursor: pointer;
+            }
+            &:first-of-type {
+                border-radius: 4px 0 0 4px;
+            }
+            &:nth-of-type(2) {
+                border-right:0;
+                border-left:0;
+            }
+            &:last-of-type {
+                border-radius: 0 4px 4px 0;
+                border-right: 2px solid $tertiary;
+            }
+        }
+        &__switch-input {
+            position: absolute !important;
+            clip: rect(0, 0, 0, 0);
+            &:disabled + label,
+            &[disabled] + label {
+                background: $white;
+                border: 2px solid rgba( $tertiary, 0.5 );
+                cursor: not-allowed;
+                color: rgba( $tertiary, 0.5 );  
+                &:nth-of-type(2) {
+                    border-left:0;
+                }
+                &:last-of-type {
+                    border-radius: 0 4px 4px 0;
+                    border-left: 0px solid $tertiary;
+                }
+            }
+            &:disabled:checked + label,
+            &[disabled][checked] + label {
+                background: rgba( $tertiary, 0.5 );
+            }
+            &:checked + label {
+                background-color: $tertiary;
+                color: $white;
+                border: none;
+                padding: 2px;
+            }
+        }
+    }
+}

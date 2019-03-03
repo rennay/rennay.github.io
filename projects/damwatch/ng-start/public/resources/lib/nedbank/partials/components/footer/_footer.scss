@@ -1,0 +1,66 @@
+/* ------------------------
+------- Footer ------------
+------------------------ */
+
+.nlsg-c-footer {
+	background: $very-light-grey;
+	color: $dark-grey;
+	padding: 0 2rem 0 0;
+	display: flex;
+	justify-content: space-evenly;
+
+	&__inner{
+		display: flex;
+		justify-content: space-between;
+		max-width: 1520px;
+		width: 100%;
+		padding: 0 10px 0 0;
+		flex-wrap: wrap;
+
+		&__left-links {
+			display: flex;
+			align-items: center;
+			justify-content: space-between;
+			margin: 2.5rem 0;
+			flex-wrap: wrap;
+
+			@media (max-width: 994px) {
+				margin: 2.5rem 0 0 0;
+			}
+
+			li {
+				padding: 0 0 0 2rem;
+
+				@media (max-width: 994px) {
+					padding: 0 0 0.75rem 2rem;
+				}
+			}
+		}
+
+		&__right-links {
+			display: flex;
+			align-items: right;
+			justify-content: center;;
+			flex-wrap: wrap;
+			flex-direction: column;
+
+			@media (max-width: 994px) {
+				flex-direction: row;
+				margin: 0 0 0.75rem 0;
+
+			}
+
+			@media (max-width: 689px) {
+				justify-content: flex-start;
+			}
+
+			li {
+
+				@media (max-width: 994px) {
+					padding: 0 0 0 2rem;
+					font-size: 0.75rem;
+				}
+			}
+		}
+	}
+}

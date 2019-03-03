@@ -1,0 +1,42 @@
+.nlsg-c-form-element {
+	/* --------------------------
+	------- Search Input --------
+	-------------------------- */
+	.nlsg-c-search-input {
+		position: relative;
+		cursor: pointer;
+
+		&:before,
+		&__search-icon:before,
+		&__clear-search-icon:before {
+			position: absolute;
+			right: 18px;
+			top: -1px;
+			bottom: -87px;
+			content: '';
+			transition: all 0.3s ease;
+			
+			@media (min-width: 400px) and (max-width: 767px) {
+				top: 9px;	
+			}
+		}
+
+		&__search-icon {
+			&:before {
+				width: 20px;
+				background: url(./../img/search-icon.svg) left center no-repeat;
+			}
+		}
+
+		&__clear-search-icon {
+			&:before {
+				width: 20px;
+				background: url(./../img/clear-search.svg) left center no-repeat;
+			}
+		}
+	}
+}
+
+input:-ms-input-placeholder {  
+   color: $light-grey;
+}

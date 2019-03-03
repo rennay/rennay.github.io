@@ -1,0 +1,21 @@
+/* ------------------------
+------- Lists -------------
+------------------------ */
+
+.nlgs-c-list {
+	&__ul,
+	&__ol {
+		color: $medium-grey;
+		padding: 0 1.4rem 1.4rem 0;
+		list-style: disc;
+
+		&__li {
+			padding: 0.4rem;
+			line-height: 1.5;
+		}
+	}
+
+	&__ol {
+		list-style: decimal;
+	}
+}

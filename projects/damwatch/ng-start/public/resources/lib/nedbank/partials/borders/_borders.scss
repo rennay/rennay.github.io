@@ -1,0 +1,63 @@
+/* ------------------------
+------- Borders -----------
+------------------------ */
+
+/* border postition */
+.border-all {
+	border-style: solid;
+	border-width: 1px;
+}
+
+.border-top {
+	border-top-style: solid;
+	border-top-width: 1px;
+}
+
+.border-right {
+	border-right-style: solid;
+	border-right-width: 1px;
+}
+
+.border-bottom {
+	border-bottom-style: solid;
+	border-bottom-width: 1px;
+}
+
+.border-left {
+	border-left-style: solid;
+	border-left-width: 1px;
+}
+
+/* border colours */
+.border-primary { border-color: $primary; }
+.border-secondary { border-color: $secondary; }
+.border-dark-grey { border-color: $dark-grey; }
+.border-medium-grey { border-color: $medium-grey; }
+.border-light-grey { border-color: $light-grey; }
+.border-light-grey-disabled { border-color: $light-grey-disabled; }
+.border-very-light-grey { border-color: $very-light-grey; }
+.border-almost-white { border-color: $primary; }
+.border-white { border-color: $white; }
+.border-black { border-color: $black; }
+.border-accent-blue { border-color: $accent-blue; }
+.border-accent-apple { border-color: $tertiary; }
+.border-accent-lime { border-color: $accent-lime; }
+.border-warning-red { border-color: $warning-red; }
+.border-warning-orange { border-color: $warning-orange; }
+
+/* border widths */
+.border-1-5 {
+	border-width: 1.5px;
+}
+
+.border-2 {
+	border-width: 2px;
+}
+
+.border-2-5 {
+	border-width: 2.5px;
+}
+
+.border-3 {
+	border-width: 3px;
+}

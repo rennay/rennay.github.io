@@ -1,0 +1,118 @@
+.nlsg-c-form-element {
+	/* ------------------------
+	------- Checkbox ----------
+	------------------------ */
+
+	&__checkbox {
+		.nlsg-c-form-element & {
+			> div {
+				margin-top: 0;
+			}
+		}
+
+		input[type="checkbox"]:not(:checked),
+		input[type="checkbox"]:checked {
+			position: relative;
+			left: -9999px;
+		}
+		input[type="checkbox"] {
+			&:not(:checked) + label,
+			&:checked + label {
+				position: relative;
+				padding-left: 3rem;
+				padding-top: 0.55rem;
+				font-weight: 200;
+				cursor: pointer;
+				float: left;
+			}
+		}
+		input[type="checkbox"]:disabled {
+			&:not(:checked) + label,
+			&:checked + label {
+				position: relative;
+				padding-left: 3rem;
+				padding-top: 0.55rem;
+				font-weight: 200;
+				cursor: pointer;
+				float: left;
+				cursor: not-allowed;
+				color: $light-grey-disabled;
+			}
+		}
+		input[type="checkbox"] {
+			&:not(:checked) + label:before,
+			&:checked + label:before {
+				content: '';
+				position: absolute;
+				left: 0;
+				top: 0;
+				border: 2px solid $light-grey;
+				background: #fff;
+				border-radius: 4px;
+				width: 1.6875rem;
+				height: 1.6875rem;
+			}
+			&:checked + label:before {
+				border: 2px solid $tertiary;
+				background: $tertiary;
+			}
+		}
+		input[type="checkbox"]:disabled {
+			&:not(:checked) + label:before,
+			&:checked + label:before {
+				content: '';
+				position: absolute;
+				left: 0;
+				top: 0;
+				border: 2px solid $light-grey-disabled;
+				background: #fff;
+				border-radius: 4px;
+				width: 1.6875rem;
+				height: 1.6875rem;
+			}
+			&:checked + label:before {
+				border: 3px solid $tertiary;
+				background: $tertiary;
+			}
+		}
+		input[type="checkbox"] {
+			&:not(:checked) + label,
+			&:checked + label {
+				color: $medium-grey;
+			}
+		}
+		input[type="checkbox"] {
+			&:not(:checked) + label:after,
+			&:checked + label:after {
+				content: url(../img/tick.svg);
+				position: absolute;
+				top: 0.6rem;
+				left: 0.5rem;
+				font-size: 1rem;
+				line-height: 0.8;
+				color: $white;
+				transition: all 0.2s;
+			}
+		}
+
+		input[type="checkbox"]:not(:checked) + label:after {
+			opacity: 0;
+			transform: scale(0);
+		}
+		input[type="checkbox"]:checked + label:after {
+			opacity: 1;
+			transform: scale(1);
+		}
+		&:after {
+			content: ".";
+			visibility: hidden;
+			display: block;
+			height: 0;
+			clear: both;
+		}
+		&__label {
+			font-size: 1rem;
+			line-height: 1.4;
+		}
+	}
+}

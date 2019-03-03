@@ -1,0 +1,29 @@
+.nlsg-c-form-element {
+    /* ------------------------
+    ------- Input addon ------------
+    ------------------------ */
+    
+    &__form-group {
+        left: 0;   
+
+        &--addon-input-group {
+            position: relative;
+
+            &__control {
+                padding-left: 1.438rem;
+            }
+
+            &__addon {
+                position: absolute;
+                padding-left: 0.8125rem;
+                color: $dark-grey;
+                display: block;
+                height: 3.125rem;
+                line-height: 3.063rem;
+                top: 1.625rem;
+                text-align: center;
+                z-index: 2;
+            }
+        }     
+    }
+}
