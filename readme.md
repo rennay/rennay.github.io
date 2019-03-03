@@ -14,11 +14,6 @@ The image below highlights my areas/technologies of interest which are detailed 
 
 Here are the links to some of my posts:
 
-## Hardware
-- [HOWTO: Send a SigFox message using Sqwidnet UnaShield and Arduino UNO](/hw/sigfox)
-- [Commissioning a Raspberry Pi](hw/raspberrypi/2018-04-27-raspberrypi-commission.md)
-- [HOWTO: Configure a GPS Module with Raspberry Pi](hw/raspberrypi/gps/readme.md)
-
 ## Firebase
 - [HOWTO: Setup a new Firebase project](firebase/firebase_setup.md)
 - [HOWTO: Setup Firestore](firebase/firestore_setup.md)
@@ -44,10 +39,18 @@ Here are the links to some of my posts:
 - [Configure your environment to use a Proxy](/env/2018-04-27-proxy.md)
 - [HOWTO: Steps to install Mongo DB](/env/2018-04-27-mongodb-install.md)
 
-## Javascript for Java Dinosaurs
+## Software Development
+### Javascript for Java Dinosaurs
 - [IDE Selection](/javascript/2018-04-28-ide-selection.md)
 - [Environment Setup](/javascript/2018-04-28-env-setup.md)
 
-## Java/Selenium 
+### Live Applications
+- [Homer Knows](https://homer-ionic-mvp.firebaseapp.com/home)
 - [South African Dam Watch](https://dnkrsoln.co.za/damwatch.html)
 - [Item Price Watch](https://dnkrsoln.co.za/itemwatch.html)
+
+## Hardware
+- [HOWTO: Send a SigFox message using Sqwidnet UnaShield and Arduino UNO](/hw/sigfox)
+- [Commissioning a Raspberry Pi](hw/raspberrypi/2018-04-27-raspberrypi-commission.md)
+- [HOWTO: Configure a GPS Module with Raspberry Pi](hw/raspberrypi/gps/readme.md)
+
