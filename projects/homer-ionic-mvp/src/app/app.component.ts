@@ -44,6 +44,11 @@ export class AppComponent {
       title: 'Search',
       url: '/homer-search',
       icon: 'search'
+    },
+    {
+      title: 'Wakanda Identity',
+      url: '/wakanda-identity',
+      icon: 'person'
     }
   ];
 

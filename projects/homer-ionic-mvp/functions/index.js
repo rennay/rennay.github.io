@@ -1,12 +1,13 @@
 const functions = require('firebase-functions');
 var moment = require('moment');
+
 // const cors = require('cors')({ origin: true });
 
 // Create and Deploy Your First Cloud Functions
 // https://firebase.google.com/docs/functions/write-firebase-functions
 
 exports.helloWorld = functions.https.onRequest((request, response) => {
-    response.send("Hello from Firebase!");
+    response.send("Hello from Firebase 08-07-2019!");
 });
 
 // The Firebase Admin SDK to access the Firebase Realtime Database.
@@ -33,6 +34,10 @@ const storage = new Storage({
 });
 
 const bucketName = 'homer-ionic-mvp.appspot.com';
+
+const SMSPORTAL_API_KEY = functions.config().smsportal.key;
+const request = require('request');
+var rp = require('request-promise');
 
 /*******************************************/
 /* 2.1. CUSTOMER CREATE                       */
@@ -191,3 +196,130 @@ function deleteQueryBatch(db, query, batchSize, resolve, reject) {
         })
         .catch(reject);
 }
+
+
+/* Responds to any HTTP request that can provide a "message" field in the body.
+*
+* @param {Object} req Cloud Function request context.
+* @param {Object} res Cloud Function response context.
+*/
+exports.sendMessage = functions.https.onRequest((req, res) => {
+    var info = "-";
+    var now = moment().utcOffset(120);
+
+    // HTTP POST
+    console.log("HTTP POST");
+
+    const destination = req.body.destination;
+    const content = req.body.content;
+
+    console.log(`destination*: [${destination}]`);
+    console.log(`content*: [${content}]`);
+
+    return internalSendSMS(destination, content)
+        .then(val => {
+            res.status(200).send("Completed....");
+        })
+        .catch(err => {
+            console.log('Error processing internalSendSMS', err);
+            res.status(200).send("error: " + err);
+        });
+});
+
+function internalSendSMS(destination, content) {
+    console.log(`destination*: [${destination}]`);
+    console.log(`content*: [${content}]`);
+
+    var token = Buffer.from(SMSPORTAL_API_KEY).toString('base64');
+    var authorization = "BASIC " + token;
+
+    // console.log("token: [" + token + "]");
+
+    var options = {
+        method: 'GET',
+        uri: 'https://rest.mymobileapi.com/v1/Authentication',
+        headers: {
+            'Content-Type': 'application/json',
+            'authorization': authorization
+        },
+        json: true // Automatically parses the JSON string in the response
+    };
+
+    return rp(options)
+        .then(function (body) {
+            console.log("-- body: " + JSON.stringify(body));
+            token = body.token;
+            console.log("token: [" + token + "]");
+
+            authorization = "Bearer " + token;
+            console.log("authorization: [" + authorization + "]");
+
+            return authorization;
+        })
+        .then(authorization => {
+            var sendRequest = {
+                'messages': [{ 'content': content, 'destination': destination }]
+            };
+
+            console.log(sendRequest);
+            options = {
+                method: 'POST',
+                uri: 'https://rest.smsportal.com/v1/bulkmessages',
+                body: sendRequest,
+                headers: {
+                    'Content-Type': 'application/json',
+                    'authorization': authorization
+                },
+                json: true // Automatically parses the JSON string in the response
+            };
+
+            return rp(options)
+        })
+        .then(function (body) {
+            var eventId = body.eventId;
+            console.log(`eventId: ${eventId}`);
+            return Promise.resolve();
+        })
+        .catch(err => {
+            console.log('Error processing internalSendSMS', err);
+            return Promise.reject();
+        });
+}
+
+exports.checkLastHour = functions.https.onRequest((req, res) => {
+    var now = moment().utcOffset(120);
+    var nowString = now.format("YYYY-MM-DD");
+    console.log("nowString*: " + nowString);
+
+    let customersRef = db.collection('customers');
+    return customersRef.orderBy('start_time', 'desc').limit(10).get()
+        .then(snapshot => {
+            if (snapshot.empty) {
+                console.log('No matching documents.');
+                return;
+            }
+            var _flag = false;
+            snapshot.forEach(doc => {
+                console.log(doc.id, '=>', doc.data());
+
+                let _status = doc.data().status;
+                console.log(`_status: ${_status}`);
+                if (_status === true) {
+                    _flag = true;
+                }
+            });
+            console.log(`_flag: ${_flag}`);
+            if (_flag === false) {
+                console.log("Send SMS...");
+                return internalSendSMS("0829039796", "Homer has picked up an issue...")
+                .then(val => {
+                    res.status(200).send(`Completed.... _flag: ${_flag}`);
+                })
+            }
+            res.status(200).send(`Completed.... _flag: ${_flag}`);
+        })
+        .catch(err => {
+            console.log('Error getting documents', err);
+            res.status(200).send(`Error ${err}....`);
+        });
+});

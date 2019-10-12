@@ -18,7 +18,8 @@ const routes: Routes = [
   { path: 'homer-live/:id', loadChildren: './pages/homer-live/homer-live.module#HomerLivePageModule' },
   { path: 'homer-list/:api/:env/:limit', loadChildren: './pages/homer-list/homer-list.module#HomerListPageModule' },
   { path: 'homer-detail/:api/:id', loadChildren: './pages/homer-detail/homer-detail.module#HomerDetailPageModule' },
-  { path: 'homer-search', loadChildren: './pages/homer-search/homer-search.module#HomerSearchPageModule' }
+  { path: 'homer-search', loadChildren: './pages/homer-search/homer-search.module#HomerSearchPageModule' },
+  { path: 'wakanda-identity', loadChildren: './pages/wakanda-identity/wakanda-identity.module#WakandaIdentityPageModule' }
 ];
 
 @NgModule({
