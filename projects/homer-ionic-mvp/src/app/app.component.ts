@@ -48,7 +48,17 @@ export class AppComponent {
     {
       title: 'Wakanda Identity',
       url: '/wakanda-identity',
-      icon: 'person'
+      icon: 'contact'
+    },
+    {
+      title: 'Wakanda Ref Types',
+      url: '/wakanda-reference-types',
+      icon: 'list'
+    },
+    {
+      title: 'Wakanda Ref Suburbs',
+      url: '/wakanda-reference-suburbs',
+      icon: 'navigate'
     }
   ];
 

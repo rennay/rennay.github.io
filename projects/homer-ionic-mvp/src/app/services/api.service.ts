@@ -14,6 +14,7 @@ export class ApiService {
   }
 
   generateLightToken(): Observable<any> {
+    console.log(`generateLightToken()`);
     const httpOptions = {
       headers: new HttpHeaders({
         'Content-Type': `application/x-www-form-urlencoded`,
@@ -59,20 +60,42 @@ export class ApiService {
   getNationalProfile(_accessToken: String, _intentID: String, _identityNumber: String): Observable<any> {
     console.log(`getNationalProfile(${_accessToken}, ${_intentID}, ${_identityNumber})`);
 
-    const httpOptions = {
-      headers: new HttpHeaders({
-        'Authorization': `Bearer ${_accessToken}`,
-        'x-ibm-client-id': this.CLIENT_ID,
-        'x-ibm-client-secret': this.CLIENT_SECRET,
-      })
-    };
-
-    return this.httpClient.get(`https://q-api.wakago.net/apimarket/live/nb-identity/api/identity/v1/${_identityNumber}/national-profile`, httpOptions);
+    return this.internalGETCall(_accessToken, `https://q-api.wakago.net/apimarket/live/nb-identity/api/identity/v1/${_identityNumber}/national-profile`);
   }
 
   getBankStatus(_accessToken: String, _intentID: String, _identityNumber: String): Observable<any> {
     console.log(`getBankStatus(${_accessToken}, ${_identityNumber})`);
 
+    return this.internalGETCall(_accessToken, `https://q-api.wakago.net/apimarket/live/nb-identity/api/identity/v1/${_identityNumber}/nb-status`);
+  }
+
+  getOccupationTypes(_accessToken: String): Observable<any> {
+    console.log(`getOccupationTypes(${_accessToken})`);
+
+    return this.internalGETCall(_accessToken, 'https://q-api.wakago.net/apimarket/live/nb-ref-data/api/nb-ref-data/v1/occupation-types');
+  }
+
+  getIndustryTypes(_accessToken: String): Observable<any> {
+    console.log(`getIndustryTypes(${_accessToken})`);
+
+    return this.internalGETCall(_accessToken, 'https://q-api.wakago.net/apimarket/live/nb-ref-data/api/nb-ref-data/v1/industry-types');
+  }
+
+  getIncomeTypes(_accessToken: String): Observable<any> {
+    console.log(`getIncomeTypes(${_accessToken})`);
+
+    return this.internalGETCall(_accessToken, 'https://q-api.wakago.net/apimarket/live/nb-ref-data/api/nb-ref-data/v1/income-types');
+  }
+
+  getSuburbs(_accessToken: String, _postalType: String, _suburb: String): Observable<any> {
+    console.log(`getSuburbs(${_accessToken}, ${_postalType}, ${_suburb})`);
+
+    return this.internalGETCall(_accessToken, `https://q-api.wakago.net/apimarket/live/nb-ref-data/api/nb-ref-data/v1/suburbs?postaltype=${_postalType}&suburb=${_suburb}`);
+  }
+
+  internalGETCall(_accessToken: String, _url): Observable<any> {
+    console.log(`internalGETCall(${_accessToken})`);
+
     const httpOptions = {
       headers: new HttpHeaders({
         'Authorization': `Bearer ${_accessToken}`,
@@ -81,7 +104,7 @@ export class ApiService {
       })
     };
 
-    return this.httpClient.get(`https://q-api.wakago.net/apimarket/live/nb-identity/api/identity/v1/${_identityNumber}/nb-status`, httpOptions);
+    return this.httpClient.get(_url, httpOptions);
   }
 
 }

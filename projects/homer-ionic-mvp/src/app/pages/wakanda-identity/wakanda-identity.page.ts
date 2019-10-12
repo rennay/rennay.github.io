@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { Observable, Subscription } from 'rxjs';
+import { Observable } from 'rxjs';
 
 import { ApiService } from 'src/app/services/api.service';
 
@@ -24,21 +24,19 @@ export class WakandaIdentityPage implements OnInit {
 
   ngOnInit() {
     this._national_profile_response = {};
-    // this._national_profile_response['FirstName'] = '-';
-
     this._bank_status_response = {};
   }
 
   run() {
     console.log("-- run");
-    this._light_token_access_token = '-';
-    this._intent_id = '-';
+    this._light_token_access_token = 'Loading...';
+    this._intent_id = 'Loading...';
     console.log(`_identityNumber: ${this._identityNumber}`);
     if ((this._identityNumber === undefined) || (this._identityNumber === '')) {
       this._identityNumber = '7612140115085';
     }
-    this._national_profile_response = {};
-    this._bank_status_response = {};
+    this._national_profile_response = { FirstName: 'Loading...'};
+    this._bank_status_response = { partyId: 'Loading...'};
 
     // var _name = this.apiSvc.getName(this._identityNumber);
     // console.log(`name: ${_name}`);

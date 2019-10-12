@@ -19,7 +19,9 @@ const routes: Routes = [
   { path: 'homer-list/:api/:env/:limit', loadChildren: './pages/homer-list/homer-list.module#HomerListPageModule' },
   { path: 'homer-detail/:api/:id', loadChildren: './pages/homer-detail/homer-detail.module#HomerDetailPageModule' },
   { path: 'homer-search', loadChildren: './pages/homer-search/homer-search.module#HomerSearchPageModule' },
-  { path: 'wakanda-identity', loadChildren: './pages/wakanda-identity/wakanda-identity.module#WakandaIdentityPageModule' }
+  { path: 'wakanda-identity', loadChildren: './pages/wakanda-identity/wakanda-identity.module#WakandaIdentityPageModule' },
+  { path: 'wakanda-reference-types', loadChildren: './pages/wakanda-reference-types/wakanda-reference-types.module#WakandaReferenceTypesPageModule' },
+  { path: 'wakanda-reference-suburbs', loadChildren: './pages/wakanda-reference-suburbs/wakanda-reference-suburbs.module#WakandaReferenceSuburbsPageModule' }
 ];
 
 @NgModule({

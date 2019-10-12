@@ -1,0 +1,54 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-menu-button></ion-menu-button>
+    </ion-buttons>
+    <ion-title>
+      Wakanda Reference - Types
+    </ion-title>
+  </ion-toolbar>
+</ion-header>
+
+
+<ion-content padding>
+  <ion-grid>
+    <ion-row>
+      <ion-col>
+        <ion-item>
+          <ion-label position="floating">Access Token (Light)</ion-label>
+          <ion-input [(ngModel)]="_light_token_access_token" disabled="true"></ion-input>
+        </ion-item>
+      </ion-col>
+    </ion-row>
+    <ion-row>
+      <ion-col>
+        <ion-button shape="round" color="primary" fill="outline" (click)="run()">Run</ion-button>
+      </ion-col>
+    </ion-row>
+    <ion-row>
+      <ion-col>
+        <ion-item>
+          <ion-label position="floating">Occupation Types</ion-label>
+          <ion-input [(ngModel)]="_refdata_types_occupation" disabled="true"></ion-input>
+        </ion-item>
+      </ion-col>
+    </ion-row>
+    <ion-row>
+        <ion-col>
+          <ion-item>
+            <ion-label position="floating">Income Types</ion-label>
+            <ion-input [(ngModel)]="_refdata_types_income" disabled="true"></ion-input>
+          </ion-item>
+        </ion-col>
+      </ion-row>
+      <ion-row>
+          <ion-col>
+            <ion-item>
+              <ion-label position="floating">Industry Types</ion-label>
+              <ion-input [(ngModel)]="_refdata_types_industry" disabled="true"></ion-input>
+            </ion-item>
+          </ion-col>
+        </ion-row>
+      
+  </ion-grid>
+</ion-content>
