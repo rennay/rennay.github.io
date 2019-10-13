@@ -53,6 +53,38 @@
     </ion-row>
     <ion-row>
       <ion-col>
+        <ion-item>
+          <ion-label position="floating">Party Type Indicator (compliance-status)</ion-label>
+          <ion-input [(ngModel)]="_compliance_status_response" disabled="true"></ion-input>
+        </ion-item>
+      </ion-col>
+    </ion-row>
+    <ion-row>
+        <ion-col>
+          <ion-item>
+            <ion-label position="floating">Company Party ID</ion-label>
+            <ion-input [(ngModel)]="_companyPartyID"></ion-input>
+          </ion-item>
+        </ion-col>
+      </ion-row>
+    <ion-row>
+      <ion-col>
+        <ion-item>
+          <ion-label position="floating">Company Registration</ion-label>
+          <ion-input [(ngModel)]="_companyRegistration"></ion-input>
+        </ion-item>
+      </ion-col>
+    </ion-row>
+    <ion-row>
+        <ion-col>
+          <ion-item>
+            <ion-label position="floating">Party Type Indicator (juristic-status)</ion-label>
+            <ion-input [(ngModel)]="_juristic_status_response" disabled="true"></ion-input>
+          </ion-item>
+        </ion-col>
+      </ion-row>  
+    <ion-row>
+      <ion-col>
         <ion-button shape="round" color="primary" fill="outline" (click)="run()">Run</ion-button>
       </ion-col>
     </ion-row>

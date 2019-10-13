@@ -105,7 +105,19 @@ export class ApiService {
   getHeavyToken(_accessToken: String, _intentID: String): Observable<any> {
     console.log(`getHeavyToken(${_accessToken}, ${_intentID})`);
 
-    return this.internalGETCall(_accessToken, `http://localhost:4000/homer/subscriptions/live/token?subscription_id=${_intentID}`);
+    return this.internalGETCall(_accessToken, `http://156.38.0.145:4000/homer/subscriptions/live/token?subscription_id=${_intentID}`);
+  }
+
+  getComplianceStatus(_accessToken: String, _intentID: String, _partyID: String): Observable<any> {
+    console.log(`getComplianceStatus(${_accessToken}, ${_intentID}, ${_partyID})`);
+
+    return this.internalGETCallCustomers(_accessToken, `https://q-api.wakago.net/apimarket/live/bus/customers/${_partyID}/compliance-status`);
+  }
+
+  getJuristicStatus(_accessToken: String, _intentID: String, _companyPartyID: String, _companyRegistration: String): Observable<any> {
+    console.log(`getComplianceStatus(${_accessToken}, ${_intentID}, ${_companyPartyID}, ${_companyRegistration})`);
+
+    return this.internalGETCallCustomers(_accessToken, `https://q-api.wakago.net/apimarket/live/bus/customers/${_companyPartyID}/juristic-status?company-registration=${_companyRegistration}`);
   }
 
   internalGETCall(_accessToken: String, _url): Observable<any> {
@@ -115,8 +127,7 @@ export class ApiService {
       headers: new HttpHeaders({
         'Authorization': `Bearer ${_accessToken}`,
         'x-ibm-client-id': this.CLIENT_ID,
-        'x-ibm-client-secret': this.CLIENT_SECRET,
-        'Access-Control-Allow-Origin': '*'
+        'x-ibm-client-secret': this.CLIENT_SECRET
       })
     };
 

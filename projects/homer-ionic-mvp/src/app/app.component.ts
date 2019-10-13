@@ -63,12 +63,17 @@ export class AppComponent {
     {
       title: 'Wakanda Customers Light',
       url: '/wakanda-customers-light',
-      icon: 'navigate'
+      icon: 'car'
     },
     {
       title: 'Wakanda Customers Heavy',
       url: '/wakanda-customers-heavy',
-      icon: 'navigate'
+      icon: 'jet'
+    },
+    {
+      title: 'Subscriptions Live',
+      url: '/homer-list/subscriptions/live/10',
+      icon: 'subway'
     }
   ];
 
