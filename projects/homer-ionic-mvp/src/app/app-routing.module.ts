@@ -21,7 +21,9 @@ const routes: Routes = [
   { path: 'homer-search', loadChildren: './pages/homer-search/homer-search.module#HomerSearchPageModule' },
   { path: 'wakanda-identity', loadChildren: './pages/wakanda-identity/wakanda-identity.module#WakandaIdentityPageModule' },
   { path: 'wakanda-reference-types', loadChildren: './pages/wakanda-reference-types/wakanda-reference-types.module#WakandaReferenceTypesPageModule' },
-  { path: 'wakanda-reference-suburbs', loadChildren: './pages/wakanda-reference-suburbs/wakanda-reference-suburbs.module#WakandaReferenceSuburbsPageModule' }
+  { path: 'wakanda-reference-suburbs', loadChildren: './pages/wakanda-reference-suburbs/wakanda-reference-suburbs.module#WakandaReferenceSuburbsPageModule' },
+  { path: 'wakanda-customers-light', loadChildren: './pages/wakanda-customers-light/wakanda-customers-light.module#WakandaCustomersLightPageModule' },
+  { path: 'wakanda-customers-heavy', loadChildren: './pages/wakanda-customers-heavy/wakanda-customers-heavy.module#WakandaCustomersHeavyPageModule' }
 ];
 
 @NgModule({

@@ -20,7 +20,7 @@ export class WakandaReferenceSuburbsPage implements OnInit {
   constructor(public apiSvc: ApiService) { }
 
   ngOnInit() {
-    this._queryPostalType = 'STR';
+    this._queryPostalType = 'str';
     this._querySuburb = 'PRETORIA';
   }
 

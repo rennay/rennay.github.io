@@ -59,6 +59,16 @@ export class AppComponent {
       title: 'Wakanda Ref Suburbs',
       url: '/wakanda-reference-suburbs',
       icon: 'navigate'
+    },
+    {
+      title: 'Wakanda Customers Light',
+      url: '/wakanda-customers-light',
+      icon: 'navigate'
+    },
+    {
+      title: 'Wakanda Customers Heavy',
+      url: '/wakanda-customers-heavy',
+      icon: 'navigate'
     }
   ];
 

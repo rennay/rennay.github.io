@@ -4,7 +4,7 @@
       <ion-menu-button></ion-menu-button>
     </ion-buttons>
     <ion-title>
-      Wakanda Reference - Suburbs
+      Wakanda Customers - Heavy
     </ion-title>
   </ion-toolbar>
 </ion-header>
@@ -22,20 +22,32 @@
     <ion-row>
       <ion-col>
         <ion-item>
-          <ion-label position="floating">Postal Types</ion-label>
-          <ion-select [(ngModel)]="_queryPostalType" ok-text="Okay" cancel-text="Dismiss" interface="action-sheet">
-            <ion-select-option value="">All</ion-select-option>
-            <ion-select-option value="str">Street</ion-select-option>
-            <ion-select-option value="box">Box</ion-select-option>
-          </ion-select>
+          <ion-label position="floating">Intent ID</ion-label>
+          <ion-input [(ngModel)]="_intent_id" disabled="true"></ion-input>
         </ion-item>
       </ion-col>
     </ion-row>
     <ion-row>
       <ion-col>
         <ion-item>
-          <ion-label position="floating">Suburb</ion-label>
-          <ion-input [(ngModel)]="_querySuburb" disabled="false"></ion-input>
+          <ion-label position="floating">Auth Code</ion-label>
+          <ion-input [(ngModel)]="_auth_code" disabled="true"></ion-input>
+        </ion-item>
+      </ion-col>
+    </ion-row>
+    <ion-row>
+      <ion-col>
+        <ion-item>
+          <ion-label position="floating">Access Token (Heavy)</ion-label>
+          <ion-input [(ngModel)]="_heavy_token_access_token" disabled="true"></ion-input>
+        </ion-item>
+      </ion-col>
+    </ion-row>
+    <ion-row>
+      <ion-col>
+        <ion-item>
+          <ion-label position="floating">Party ID</ion-label>
+          <ion-input [(ngModel)]="_partyID"></ion-input>
         </ion-item>
       </ion-col>
     </ion-row>
@@ -44,14 +56,6 @@
         <ion-button shape="round" color="primary" fill="outline" (click)="run()">Run</ion-button>
       </ion-col>
     </ion-row>
-    <ion-list *ngFor="let _suburb of _suburbList | async">
-      <ion-item>
-        <ion-row>
-          <ion-col>
-            {{ _suburb.Suburb }} - {{ _suburb.PostalCode }} - {{ _suburb.AddressType }}
-          </ion-col>
-        </ion-row>
-      </ion-item>
-    </ion-list>
+
   </ion-grid>
 </ion-content>

@@ -17,8 +17,8 @@ export class WakandaIdentityPage implements OnInit {
   _light_token_access_token: String;
   _intent_id: String;
   _identityNumber: String;
-  _national_profile_response: any;
-  _bank_status_response: any;
+  _national_profile_response: String;
+  _bank_status_response: String;
 
   IDENTITY_NUMBER_RENNAY = '7806295175080';
 
@@ -26,8 +26,6 @@ export class WakandaIdentityPage implements OnInit {
 
   ngOnInit() {
     this._identityNumber = this.IDENTITY_NUMBER_RENNAY;
-    this._national_profile_response = {};
-    this._bank_status_response = {};
   }
 
   run() {
@@ -38,8 +36,8 @@ export class WakandaIdentityPage implements OnInit {
       this._identityNumber = this.IDENTITY_NUMBER_RENNAY;
     }
     console.log(`_identityNumber: ${this._identityNumber}`);
-    this._national_profile_response = { FirstName: 'Loading...'};
-    this._bank_status_response = { partyId: 'Loading...'};
+    this._national_profile_response = 'Loading...';
+    this._bank_status_response = 'Loading...';
 
     // var _name = this.apiSvc.getName(this._identityNumber);
     // console.log(`name: ${_name}`);
@@ -54,29 +52,48 @@ export class WakandaIdentityPage implements OnInit {
 
         this._intent = this.apiSvc.generateIntent(this._light_token_access_token);
         this._intent.subscribe(data => {
+          console.log('my data: ', data);
+
+          this._intent_id = data['Data']['subscription_id'];
+          console.log(`_subscription_id: ${this._intent_id}`);
+
+          this._national_profile = this.apiSvc.getNationalProfile(this._light_token_access_token, this._intent_id, this._identityNumber);
+          this._national_profile.subscribe(data => {
             console.log('my data: ', data);
 
-            this._intent_id = data['Data']['subscription_id'];
-            console.log(`_subscription_id: ${this._intent_id}`);
+            this._national_profile_response = data['FirstName'];
+            console.log(this._national_profile_response);
+          },
+            err => {
+              console.log(err);
+              this._national_profile_response = err.message;
+            }
+          );
 
-            this._national_profile = this.apiSvc.getNationalProfile(this._light_token_access_token, this._intent_id, this._identityNumber);
-            this._national_profile.subscribe(data => {
-              console.log('my data: ', data);
-      
-              this._national_profile_response = data;
-              console.log(this._national_profile_response);
-            });      
+          this._bank_status = this.apiSvc.getBankStatus(this._light_token_access_token, this._intent_id, this._identityNumber);
+          this._bank_status.subscribe(data => {
+            console.log('my data: ', data);
 
-            this._bank_status = this.apiSvc.getBankStatus(this._light_token_access_token, this._intent_id, this._identityNumber);
-            this._bank_status.subscribe(data => {
-              console.log('my data: ', data);
-      
-              this._bank_status_response = data;
-              console.log(this._bank_status_response);
-            });      
-
-          });
-      });
+            this._bank_status_response = data['partyId'];
+            console.log(this._bank_status_response);
+          },
+            err => {
+              console.log(err);
+              this._bank_status_response = err.message;
+            }
+          );
+        },
+          err => {
+            console.log(err);
+            this._intent_id = err.message;
+          }
+        );
+      },
+        err => {
+          console.log(err);
+          this._light_token_access_token = err.message;
+        }
+      );
 
     // console.log(`_env: ${this._env}`);
     // console.log(`_limit: ${this._limit}`);
