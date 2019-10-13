@@ -20,9 +20,12 @@ export class WakandaIdentityPage implements OnInit {
   _national_profile_response: any;
   _bank_status_response: any;
 
+  IDENTITY_NUMBER_RENNAY = '7806295175080';
+
   constructor(public apiSvc: ApiService) { }
 
   ngOnInit() {
+    this._identityNumber = this.IDENTITY_NUMBER_RENNAY;
     this._national_profile_response = {};
     this._bank_status_response = {};
   }
@@ -31,10 +34,10 @@ export class WakandaIdentityPage implements OnInit {
     console.log("-- run");
     this._light_token_access_token = 'Loading...';
     this._intent_id = 'Loading...';
-    console.log(`_identityNumber: ${this._identityNumber}`);
     if ((this._identityNumber === undefined) || (this._identityNumber === '')) {
-      this._identityNumber = '7612140115085';
+      this._identityNumber = this.IDENTITY_NUMBER_RENNAY;
     }
+    console.log(`_identityNumber: ${this._identityNumber}`);
     this._national_profile_response = { FirstName: 'Loading...'};
     this._bank_status_response = { partyId: 'Loading...'};
 

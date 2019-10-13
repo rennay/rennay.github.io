@@ -32,26 +32,26 @@
       </ion-col>
     </ion-row>
     <ion-row>
-        <ion-col>
-          <ion-item>
-            <ion-label position="floating">Suburb</ion-label>
-              <ion-input [(ngModel)]="_querySuburb" disabled="false"></ion-input>
-          </ion-item>
-        </ion-col>
-      </ion-row>
+      <ion-col>
+        <ion-item>
+          <ion-label position="floating">Suburb</ion-label>
+          <ion-input [(ngModel)]="_querySuburb" disabled="false"></ion-input>
+        </ion-item>
+      </ion-col>
+    </ion-row>
     <ion-row>
       <ion-col>
         <ion-button shape="round" color="primary" fill="outline" (click)="run()">Run</ion-button>
       </ion-col>
     </ion-row>
     <ion-list *ngFor="let _suburb of _suburbList | async">
-        <ion-item>
-          <ion-row>
-            <ion-col>
-{{ _suburb.Suburb }}
-            </ion-col>
-            </ion-row>
-          </ion-item>
-          </ion-list>
+      <ion-item>
+        <ion-row>
+          <ion-col>
+            {{ _suburb.Suburb }}
+          </ion-col>
+        </ion-row>
+      </ion-item>
+    </ion-list>
   </ion-grid>
 </ion-content>

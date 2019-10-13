@@ -22,33 +22,29 @@
     </ion-row>
     <ion-row>
       <ion-col>
-        <ion-button shape="round" color="primary" fill="outline" (click)="run()">Run</ion-button>
-      </ion-col>
-    </ion-row>
-    <ion-row>
-      <ion-col>
         <ion-item>
-          <ion-label position="floating">Occupation Types</ion-label>
-          <ion-input [(ngModel)]="_refdata_types_occupation" disabled="true"></ion-input>
+          <ion-label position="floating">Types</ion-label>
+          <ion-select [(ngModel)]="_refTypeQuery" ok-text="Okay" cancel-text="Dismiss" interface="action-sheet">
+            <ion-select-option value="OCCUPATION">Occupation</ion-select-option>
+            <ion-select-option value="INCOME">Income</ion-select-option>
+            <ion-select-option value="INDUSTRY">Industry</ion-select-option>
+          </ion-select>
         </ion-item>
       </ion-col>
     </ion-row>
     <ion-row>
-        <ion-col>
-          <ion-item>
-            <ion-label position="floating">Income Types</ion-label>
-            <ion-input [(ngModel)]="_refdata_types_income" disabled="true"></ion-input>
-          </ion-item>
-        </ion-col>
-      </ion-row>
-      <ion-row>
-          <ion-col>
-            <ion-item>
-              <ion-label position="floating">Industry Types</ion-label>
-              <ion-input [(ngModel)]="_refdata_types_industry" disabled="true"></ion-input>
-            </ion-item>
-          </ion-col>
-        </ion-row>
-      
+      <ion-col>
+        <ion-button shape="round" color="primary" fill="outline" (click)="run()">Run</ion-button>
+      </ion-col>
+    </ion-row>
+    <ion-list *ngFor="let _type of _typesList | async">
+        <ion-item>
+          <ion-row>
+            <ion-col>
+              {{ _type.Code }} - {{ _type.Description}}
+            </ion-col>
+          </ion-row>
+        </ion-item>
+      </ion-list>    
   </ion-grid>
 </ion-content>

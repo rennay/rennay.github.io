@@ -38,7 +38,7 @@ export class WakandaReferenceSuburbsPage implements OnInit {
 
         this._suburbList = this.apiSvc.getSuburbs(this._light_token_access_token, this._queryPostalType, this._querySuburb);
         this._suburbList.subscribe(data => {
-            console.log('my data: ', data);
+          console.log('my data: ', data);
         });
       });
   }
