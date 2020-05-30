@@ -4,6 +4,7 @@
 
 This code demonstrates the Node Event Loop
 
+## Code:
 ```javascript
     const express = require('express')
     const app = express()
@@ -28,7 +29,15 @@ This code demonstrates the Node Event Loop
     app.listen(port, () => console.log(`Example app listening at http://localhost:${port}`))
 ```
 
-Output:
+## Input:
+
+```
+http://localhost:3000/sleep
+http://localhost:3000/sleep
+http://localhost:3000
+```
+
+## Output:
 ```output
     sleeping...
     sleeping...
