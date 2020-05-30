@@ -2,7 +2,9 @@
 
 [Jake Archibald - Node Event Loop](https://www.youtube.com/watch?v=cCOL7MC4Pl0&feature=youtu.be) 
 
-This code demonstrates the Node Event Loop
+This code demonstrates the Node Event Loop.  
+
+Finding: There is no block.  Calls to the Express web server are still served.
 
 ## Code:
 ```javascript
