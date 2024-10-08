@@ -67,7 +67,7 @@ Run the following:
 ~~~~
 sudo apt-get update -y
 sudo apt-get upgrade -y
-sudo apt-get install gpsd gpsd-clients python-gps -y
+~~sudo apt-get install gpsd gpsd-clients python-gps -y~~
 ~~~~
 
 Update 10-2024
