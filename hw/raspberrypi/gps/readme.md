@@ -67,7 +67,7 @@ Run the following:
 ~~~~
 sudo apt-get update -y
 sudo apt-get upgrade -y
-sudo apt-get install gpsd gpsd-clients python-gps -y
+sudo apt-get install gpsd gpsd-clients -y
 ~~~~
 
 ### Verify Comms between Pi and GPS Module
@@ -79,7 +79,7 @@ cat /dev/ttyAMA0
 ![Alt text](images/cat_dev_ttyAMA0.png "cat /dev/ttyAMA0")
 
 ~~~~
-gpsmon /dev/ttyAMA0
+gpsmon /dev/ttyS0
 ~~~~
 
 ![Alt text](images/gpsmon_dev_ttyAMA0.png "gpsmon /dev/ttyAMA0")
@@ -87,7 +87,7 @@ gpsmon /dev/ttyAMA0
 ~~~~
 sudo systemctl stop gpsd.socket
 sudo systemctl disable gpsd.socket
-sudo gpsd /dev/ttyAMA0 -F /var/run/gpsd.sock
+sudo gpsd /dev/ttyS0 -F /var/run/gpsd.sock
 ~~~~
 
 ~~~~
@@ -110,7 +110,7 @@ pip install pytz
 ~~~~
 sudo systemctl stop gpsd.socket
 sudo systemctl disable gpsd.socket
-sudo gpsd /dev/ttyAMA0 -F /var/run/gpsd.sock
+sudo gpsd /dev/ttyS0 -F /var/run/gpsd.sock
 ~~~~
 
 ~~~~
