@@ -101,16 +101,28 @@ sudo cgps -s
 ## Lets do this from Python!
 
 ~~~~
-sudo apt-get install python-pip -y
-pip install gps3
-pip install python-dateutil
-pip install pytz
+python3 -m venv ~/py_envs
+source ~/py_envs/bin/activate
+python3 -m pip install xyz
+~~~~
+
+~~~~
+sudo apt-get install python3-pip -y
+python3 -m pip install gps3
+python3 -m pip install python-dateutil
+python3 -m pip install pytz
 ~~~~
 
 ~~~~
 sudo systemctl stop gpsd.socket
 sudo systemctl disable gpsd.socket
 sudo gpsd /dev/ttyS0 -F /var/run/gpsd.sock
+~~~~
+
+*Fix: inconsistent use of tabs and spaces in indentation*
+~~~~
+sudo apt install python3-autopep8
+autopep8 -i test.py
 ~~~~
 
 ~~~~
