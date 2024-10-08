@@ -126,7 +126,7 @@ autopep8 -i test.py
 ~~~~
 
 ~~~~
-python test.py
+python3 test.py
 
 Hello world..
 2018-05-01 20:46:47+00:00 - {'latitude': -26.032617679, 'altitude': 1482.076, 'speed': 0.005, 'longitude': 28.092394719, 'time': u'2018-05-01T20:46:47.000Z'}
