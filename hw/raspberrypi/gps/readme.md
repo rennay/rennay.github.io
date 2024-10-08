@@ -70,6 +70,11 @@ sudo apt-get upgrade -y
 sudo apt-get install gpsd gpsd-clients python-gps -y
 ~~~~
 
+Update 10-2024
+~~~~
+sudo apt-get install gpsd gpsd-clients -y
+~~~~
+
 ### Verify Comms between Pi and GPS Module
 
 ~~~~
