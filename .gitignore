@@ -1,2 +1,3 @@
 _site/
 /java/selenium/target/
+.DS_Store
