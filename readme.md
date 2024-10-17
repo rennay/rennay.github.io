@@ -1,7 +1,7 @@
 
 # Rennay Dorasamy, Technologist
 
-Hi there, I'm Rennay Dorasamy!
+Hi there, I'm Rennay Dorasamy! 2024
 
 The intention of this site is (in order of priority):
 1. document what I have done over the last few months
