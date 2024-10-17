@@ -52,7 +52,7 @@
 
 ## Image Recognition
 
-- [Extract Images from Stram](../../aws/kvs/extract-images.md)
+- [Extract Images from Stream](../../aws/kvs/extract-images.md)
 
 - Confirm image creation in S3
 
