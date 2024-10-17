@@ -85,6 +85,7 @@ Quick HTML or front-end application from there to render the information from Fi
 
 ## Hardware
 - [HOWTO: Send a SigFox message using Sqwidnet UnaShield and Arduino UNO](/hw/sigfox)
-- [Commissioning a Raspberry Pi (Buster)](hw/raspberrypi/setup)
+- [HOWTO: Commissioning a Raspberry Pi (Buster)](hw/raspberrypi/setup)
+- [HOWTO: Configure Amazon Kinesis Video Streams (KVS)](kvs)
 - [HOWTO: Configure a GPS Module with Raspberry Pi](hw/raspberrypi/gps/readme.md)
 
