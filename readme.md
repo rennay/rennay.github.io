@@ -45,6 +45,9 @@ Here are the links to some of my posts:
 - [IDE Selection](/javascript/2018-04-28-ide-selection.md)
 - [Environment Setup](/javascript/2018-04-28-env-setup.md)
 
+### Projects
+- [Vision with Rekognition](/projects/vision-rekognition/readme.md)
+
 ### Live Applications
 #### [Homer Knows](https://homer-ionic-mvp.firebaseapp.com/home)
 This application is used to test the availability of an API by:
@@ -58,8 +61,6 @@ This application is used to test the availability of an API by:
 
 #### [South African Dam Watch](https://dnkrsoln.co.za/damwatch.html)
 As the Western Cape experienced a water shortage in 2018, I was curious to know if this was getting better or worse and also to track other provinces in South Africa.  After some research, I found the [Department of Water Affairs](http://www.dwa.gov.za/Hydrology/Weekly/SumProvince.aspx) site which provided this summary.
-
-![DWA](images/dwa_gov_za.png)
 
 However, the "trouble" with this site was:
 1.  It did not provide a "historical" view
@@ -76,12 +77,6 @@ Quick HTML or front-end application from there to render the information from Fi
 * Current Dam Levels
 
 ![Dam Watch Current](images/dam_watch_current.png)
-
-* Historical Dam Levels
-
-![Dam Watch Historical](images/dam_watch_historical.png)
-
-#### [Item Price Watch](https://dnkrsoln.co.za/itemwatch.html)
 
 ## Hardware
 - [HOWTO: Send a SigFox message using Sqwidnet UnaShield and Arduino UNO](/hw/sigfox)

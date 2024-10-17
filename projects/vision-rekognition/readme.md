@@ -1,5 +1,7 @@
 # Project Vision - Rekognition
 
+![Alt text](images/paul_shiner_part_3.png "Paul Shiner - Part 3")
+
 ## IAM
 
 - Policy: *demo-rtc-policy*
@@ -57,8 +59,6 @@
 ![Alt text](images/s3_images_extracted.png "Images created in S3")
 
 - [Detect Text (CLI, NodeJS, Python)](../../aws/rekognition/detect-text.md)
-
-![Alt text](images/paul_shiner_part_3.png "Paul Shiner - Part 3")
 
 ## References
 
