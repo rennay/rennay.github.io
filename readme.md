@@ -1,7 +1,7 @@
 
 # Rennay Dorasamy, Technologist
 
-Hi there, I'm Rennay Dorasamy! 2024
+Hi there, I'm Rennay Dorasamy!
 
 The intention of this site is (in order of priority):
 1. document what I have done over the last few months
@@ -85,6 +85,6 @@ Quick HTML or front-end application from there to render the information from Fi
 
 ## Hardware
 - [HOWTO: Send a SigFox message using Sqwidnet UnaShield and Arduino UNO](/hw/sigfox)
-- [Commissioning a Raspberry Pi](hw/raspberrypi/2018-04-27-raspberrypi-commission.md)
+- [Commissioning a Raspberry Pi (Buster)](hw/raspberrypi/setup)
 - [HOWTO: Configure a GPS Module with Raspberry Pi](hw/raspberrypi/gps/readme.md)
 
