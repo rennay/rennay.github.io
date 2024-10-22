@@ -1,6 +1,4 @@
-# Project Vision - Rekognition
-
-![Alt text](images/paul_shiner_part_3.png "Paul Shiner - Part 3")
+# Project AI Boom Gate
 
 ## IAM
 

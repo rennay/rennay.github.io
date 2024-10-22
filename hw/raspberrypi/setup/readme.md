@@ -1,4 +1,4 @@
-## Steps to commission a Raspberry Pi
+## Steps to commission a Raspberry Pi (Buster)
 
 * Download Raspbian Buster Lite - https://downloads.raspberrypi.org/raspbian_lite/images/raspbian_lite-2020-02-14/
 * Unzip

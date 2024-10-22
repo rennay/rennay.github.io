@@ -46,7 +46,7 @@ Here are the links to some of my posts:
 - [Environment Setup](/javascript/2018-04-28-env-setup.md)
 
 ### Projects
-- [Vision with Rekognition](/projects/vision-rekognition/readme.md)
+- [AI Boom Gate](/projects/ai-boom-gate/readme.md)
 
 ### Live Applications
 #### [Homer Knows](https://homer-ionic-mvp.firebaseapp.com/home)
