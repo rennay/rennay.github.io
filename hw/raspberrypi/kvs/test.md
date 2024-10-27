@@ -32,6 +32,12 @@ wget https://awsj-iot-handson.s3-ap-northeast-1.amazonaws.com/kvs-workshop/sampl
 - Stream
 
 ```bash
+./kvs_gstreamer_sample
+
+ Usage: AWS_ACCESS_KEY_ID=SAMPLEKEY AWS_SECRET_ACCESS_KEY=SAMPLESECRET ./kinesis_video_gstreamer_sample_app my-stream-name -w width -h height -f framerate -b bitrateInKBPS
+ ```
+
+```bash
 ./kvs_gstreamer_sample [YourStreamName] [mp4]
 ```
 

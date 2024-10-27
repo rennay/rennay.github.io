@@ -1,7 +1,11 @@
-## Steps to commission a Raspberry Pi (Buster)
+## Steps to commission a Raspberry Pi
+
+### Buster for Raspberry Pi Model 2
 
 * Download Raspbian Buster Lite - https://downloads.raspberrypi.org/raspbian_lite/images/raspbian_lite-2020-02-14/
 * Unzip
+
+### BullsEye for Raspberry Pi Model 3B+
 
 * User Raspberry Pi Imager to write the image to a memory card.  I used a 16GB card.
 
