@@ -60,14 +60,14 @@ wget https://awsj-iot-handson.s3-ap-northeast-1.amazonaws.com/kvs-workshop/sampl
 ## Specify resolution
 
 ```bash
-./kvs_gstreamer_sample YourStreamName [YourStreamName] - w [width] -h [height]
+./kvs_gstreamer_sample [YourStreamName] - w [width] -h [height]
 ```
 
 ### Example
 
 ```bash
-./kvs_gstreamer_sample YourStreamName NicStream -w 1024 -h 768
+./kvs_gstreamer_sample NicStream -w 1024 -h 768
 ```
 
 ## References
-1. [Send data to an Amazon Kinesis video stream](https://docs.aws.amazon.com/kinesisvideostreams/latest/dg/gs-send-data.html)
+- [Send data to an Amazon Kinesis video stream](https://docs.aws.amazon.com/kinesisvideostreams/latest/dg/gs-send-data.html)
